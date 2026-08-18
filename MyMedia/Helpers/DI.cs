@@ -1,23 +1,23 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using MyMedia.AppLayer.Services;
 using MyMedia.Infrastructure;
+using MyMedia.Infrastructure.Data;
 using MyMedia.ViewModels.Windows;
 
 namespace MyMedia.Helpers;
 
 public class DI
 {
-    private static IServiceProvider _serviceProvider;
+    private static IServiceProvider _serviceProvider = null!;
 
     public static void Init()
     {
         var services = new ServiceCollection();
 
-        services.AddInfrastructure(DbPathProvider.GetDbPath());
+        services.AddInfrastructure($"Data Source={DbPathProvider.GetDbPath()}");
 
         services.AddTransient<MainWindow>();
         services.AddTransient<MainViewModel>();
-
         services.AddTransient<MediaService>();
 
         _serviceProvider = services.BuildServiceProvider();

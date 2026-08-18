@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MyMedia.App\MyMedia.App.csproj" />
+    <ProjectReference Include="..\MyMedia.App\MyMedia.AppLayer.csproj" />
     <ProjectReference Include="..\MyMedia.Infrastructure\MyMedia.Infrastructure.csproj" />
   </ItemGroup>
 

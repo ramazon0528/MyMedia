@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MyMedia.App\MyMedia.App.csproj" />
+    <ProjectReference Include="..\MyMedia.App\MyMedia.AppLayer.csproj" />
     <ProjectReference Include="..\MyMedia.Domain\MyMedia.Domain.csproj" />
   </ItemGroup>
 

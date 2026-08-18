@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v10.0": {
       "MyMedia/1.0.0": {
         "dependencies": {
-          "MyMedia.App": "1.0.0",
+          "MyMedia.AppLayer": "1.0.0",
           "MyMedia.Infrastructure": "1.0.0"
         },
         "runtime": {
@@ -342,12 +342,12 @@
           }
         }
       },
-      "MyMedia.App/1.0.0": {
+      "MyMedia.AppLayer/1.0.0": {
         "dependencies": {
           "MyMedia.Domain": "1.0.0"
         },
         "runtime": {
-          "MyMedia.App.dll": {
+          "MyMedia.AppLayer.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -365,7 +365,7 @@
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "10.0.11",
           "Microsoft.EntityFrameworkCore.Sqlite": "10.0.11",
-          "MyMedia.App": "1.0.0",
+          "MyMedia.AppLayer": "1.0.0",
           "MyMedia.Domain": "1.0.0"
         },
         "runtime": {
@@ -523,7 +523,7 @@
       "path": "sqlitepclraw.provider.e_sqlite3/2.1.12",
       "hashPath": "sqlitepclraw.provider.e_sqlite3.2.1.12.nupkg.sha512"
     },
-    "MyMedia.App/1.0.0": {
+    "MyMedia.AppLayer/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

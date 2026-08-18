@@ -43,16 +43,13 @@ D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\bin\Debug\net10.0-windows\r
 D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\bin\Debug\net10.0-windows\runtimes\win-arm64\native\e_sqlite3.dll
 D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\bin\Debug\net10.0-windows\runtimes\win-x64\native\e_sqlite3.dll
 D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\bin\Debug\net10.0-windows\runtimes\win-x86\native\e_sqlite3.dll
-D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\bin\Debug\net10.0-windows\MyMedia.App.dll
 D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\bin\Debug\net10.0-windows\MyMedia.Domain.dll
 D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\bin\Debug\net10.0-windows\MyMedia.Infrastructure.dll
-D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\bin\Debug\net10.0-windows\MyMedia.App.pdb
 D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\bin\Debug\net10.0-windows\MyMedia.Infrastructure.pdb
 D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\bin\Debug\net10.0-windows\MyMedia.Domain.pdb
 D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\obj\Debug\net10.0-windows\MyMedia.csproj.AssemblyReference.cache
 D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\obj\Debug\net10.0-windows\Views\Windows\MainWindow.g.cs
 D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\obj\Debug\net10.0-windows\App.g.cs
-D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\obj\Debug\net10.0-windows\GeneratedInternalTypeHelper.g.cs
 D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\obj\Debug\net10.0-windows\MyMedia_MarkupCompile.cache
 D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\obj\Debug\net10.0-windows\MyMedia_MarkupCompile.lref
 D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\obj\Debug\net10.0-windows\App.baml
@@ -69,3 +66,5 @@ D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\obj\Debug\net10.0-windows\r
 D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\obj\Debug\net10.0-windows\MyMedia.pdb
 D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\obj\Debug\net10.0-windows\MyMedia.genruntimeconfig.cache
 D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\obj\Debug\net10.0-windows\ref\MyMedia.dll
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\bin\Debug\net10.0-windows\MyMedia.AppLayer.dll
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\bin\Debug\net10.0-windows\MyMedia.AppLayer.pdb
