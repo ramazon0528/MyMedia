@@ -439,17 +439,17 @@
           "lib/net6.0-windows7.0/SQLitePCLRaw.provider.e_sqlite3.dll": {}
         }
       },
-      "MyMedia.App/1.0.0": {
+      "MyMedia.AppLayer/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
           "MyMedia.Domain": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/MyMedia.App.dll": {}
+          "bin/placeholder/MyMedia.AppLayer.dll": {}
         },
         "runtime": {
-          "bin/placeholder/MyMedia.App.dll": {}
+          "bin/placeholder/MyMedia.AppLayer.dll": {}
         }
       },
       "MyMedia.Domain/1.0.0": {
@@ -468,7 +468,7 @@
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "10.0.11",
           "Microsoft.EntityFrameworkCore.Sqlite": "10.0.11",
-          "MyMedia.App": "1.0.0",
+          "MyMedia.AppLayer": "1.0.0",
           "MyMedia.Domain": "1.0.0"
         },
         "compile": {
@@ -1030,10 +1030,10 @@
         "sqlitepclraw.provider.e_sqlite3.nuspec"
       ]
     },
-    "MyMedia.App/1.0.0": {
+    "MyMedia.AppLayer/1.0.0": {
       "type": "project",
-      "path": "../MyMedia.App/MyMedia.App.csproj",
-      "msbuildProject": "../MyMedia.App/MyMedia.App.csproj"
+      "path": "../MyMedia.App/MyMedia.AppLayer.csproj",
+      "msbuildProject": "../MyMedia.App/MyMedia.AppLayer.csproj"
     },
     "MyMedia.Domain/1.0.0": {
       "type": "project",
@@ -1048,7 +1048,7 @@
   },
   "projectFileDependencyGroups": {
     "net10.0-windows": [
-      "MyMedia.App >= 1.0.0",
+      "MyMedia.AppLayer >= 1.0.0",
       "MyMedia.Infrastructure >= 1.0.0"
     ]
   },
@@ -1086,8 +1086,8 @@
           "framework": "net10.0-windows7.0",
           "targetAlias": "net10.0-windows",
           "projectReferences": {
-            "D:\\02-SharpMaster\\CSharp\\WPF\\MyMedia\\MyMedia\\MyMedia.App\\MyMedia.App.csproj": {
-              "projectPath": "D:\\02-SharpMaster\\CSharp\\WPF\\MyMedia\\MyMedia\\MyMedia.App\\MyMedia.App.csproj"
+            "D:\\02-SharpMaster\\CSharp\\WPF\\MyMedia\\MyMedia\\MyMedia.App\\MyMedia.AppLayer.csproj": {
+              "projectPath": "D:\\02-SharpMaster\\CSharp\\WPF\\MyMedia\\MyMedia\\MyMedia.App\\MyMedia.AppLayer.csproj"
             },
             "D:\\02-SharpMaster\\CSharp\\WPF\\MyMedia\\MyMedia\\MyMedia.Infrastructure\\MyMedia.Infrastructure.csproj": {
               "projectPath": "D:\\02-SharpMaster\\CSharp\\WPF\\MyMedia\\MyMedia\\MyMedia.Infrastructure\\MyMedia.Infrastructure.csproj"

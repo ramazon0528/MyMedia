@@ -33,9 +33,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\02-SharpMaster\\CSharp\\WPF\\MyMedia\\MyMedia\\MyMedia.App\\MyMedia.App.csproj",
-      "projectName": "MyMedia.App",
-      "projectPath": "D:\\02-SharpMaster\\CSharp\\WPF\\MyMedia\\MyMedia\\MyMedia.App\\MyMedia.App.csproj",
+      "projectUniqueName": "D:\\02-SharpMaster\\CSharp\\WPF\\MyMedia\\MyMedia\\MyMedia.App\\MyMedia.AppLayer.csproj",
+      "projectName": "MyMedia.AppLayer",
+      "projectPath": "D:\\02-SharpMaster\\CSharp\\WPF\\MyMedia\\MyMedia\\MyMedia.App\\MyMedia.AppLayer.csproj",
       "packagesPath": "C:\\Users\\mrkol\\.nuget\\packages\\",
       "outputPath": "D:\\02-SharpMaster\\CSharp\\WPF\\MyMedia\\MyMedia\\MyMedia.App\\obj\\",
       "projectStyle": "PackageReference",

@@ -1,4 +1,4 @@
-﻿namespace MyMedia.App.DTOs;
+﻿namespace MyMedia.AppLayer.DTOs;
 
 public enum MediaSort
 {

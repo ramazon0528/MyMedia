@@ -4,12 +4,12 @@
     "D:\\02-SharpMaster\\CSharp\\WPF\\MyMedia\\MyMedia\\MyMedia\\MyMedia.csproj": {}
   },
   "projects": {
-    "D:\\02-SharpMaster\\CSharp\\WPF\\MyMedia\\MyMedia\\MyMedia.App\\MyMedia.App.csproj": {
+    "D:\\02-SharpMaster\\CSharp\\WPF\\MyMedia\\MyMedia\\MyMedia.App\\MyMedia.AppLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\02-SharpMaster\\CSharp\\WPF\\MyMedia\\MyMedia\\MyMedia.App\\MyMedia.App.csproj",
-        "projectName": "MyMedia.App",
-        "projectPath": "D:\\02-SharpMaster\\CSharp\\WPF\\MyMedia\\MyMedia\\MyMedia.App\\MyMedia.App.csproj",
+        "projectUniqueName": "D:\\02-SharpMaster\\CSharp\\WPF\\MyMedia\\MyMedia\\MyMedia.App\\MyMedia.AppLayer.csproj",
+        "projectName": "MyMedia.AppLayer",
+        "projectPath": "D:\\02-SharpMaster\\CSharp\\WPF\\MyMedia\\MyMedia\\MyMedia.App\\MyMedia.AppLayer.csproj",
         "packagesPath": "C:\\Users\\mrkol\\.nuget\\packages\\",
         "outputPath": "D:\\02-SharpMaster\\CSharp\\WPF\\MyMedia\\MyMedia\\MyMedia.App\\obj\\",
         "projectStyle": "PackageReference",
@@ -722,8 +722,8 @@
             "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "D:\\02-SharpMaster\\CSharp\\WPF\\MyMedia\\MyMedia\\MyMedia.App\\MyMedia.App.csproj": {
-                "projectPath": "D:\\02-SharpMaster\\CSharp\\WPF\\MyMedia\\MyMedia\\MyMedia.App\\MyMedia.App.csproj"
+              "D:\\02-SharpMaster\\CSharp\\WPF\\MyMedia\\MyMedia\\MyMedia.App\\MyMedia.AppLayer.csproj": {
+                "projectPath": "D:\\02-SharpMaster\\CSharp\\WPF\\MyMedia\\MyMedia\\MyMedia.App\\MyMedia.AppLayer.csproj"
               },
               "D:\\02-SharpMaster\\CSharp\\WPF\\MyMedia\\MyMedia\\MyMedia.Domain\\MyMedia.Domain.csproj": {
                 "projectPath": "D:\\02-SharpMaster\\CSharp\\WPF\\MyMedia\\MyMedia\\MyMedia.Domain\\MyMedia.Domain.csproj"
@@ -1093,8 +1093,8 @@
             "framework": "net10.0-windows7.0",
             "targetAlias": "net10.0-windows",
             "projectReferences": {
-              "D:\\02-SharpMaster\\CSharp\\WPF\\MyMedia\\MyMedia\\MyMedia.App\\MyMedia.App.csproj": {
-                "projectPath": "D:\\02-SharpMaster\\CSharp\\WPF\\MyMedia\\MyMedia\\MyMedia.App\\MyMedia.App.csproj"
+              "D:\\02-SharpMaster\\CSharp\\WPF\\MyMedia\\MyMedia\\MyMedia.App\\MyMedia.AppLayer.csproj": {
+                "projectPath": "D:\\02-SharpMaster\\CSharp\\WPF\\MyMedia\\MyMedia\\MyMedia.App\\MyMedia.AppLayer.csproj"
               },
               "D:\\02-SharpMaster\\CSharp\\WPF\\MyMedia\\MyMedia\\MyMedia.Infrastructure\\MyMedia.Infrastructure.csproj": {
                 "projectPath": "D:\\02-SharpMaster\\CSharp\\WPF\\MyMedia\\MyMedia\\MyMedia.Infrastructure\\MyMedia.Infrastructure.csproj"

@@ -1,0 +1,16 @@
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia.App\bin\Debug\net10.0\MyMedia.App.deps.json
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia.App\bin\Debug\net10.0\MyMedia.App.dll
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia.App\bin\Debug\net10.0\MyMedia.App.pdb
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia.App\bin\Debug\net10.0\MyMedia.Domain.dll
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia.App\bin\Debug\net10.0\MyMedia.Domain.pdb
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia.App\obj\Debug\net10.0\MyMedia.App.csproj.AssemblyReference.cache
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia.App\obj\Debug\net10.0\MyMedia.App.GeneratedMSBuildEditorConfig.editorconfig
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia.App\obj\Debug\net10.0\MyMedia.App.AssemblyInfoInputs.cache
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia.App\obj\Debug\net10.0\MyMedia.App.AssemblyInfo.cs
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia.App\obj\Debug\net10.0\MyMedia.App.csproj.CoreCompileInputs.cache
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia.App\obj\Debug\net10.0\MyMedia.App.sourcelink.json
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia.App\obj\Debug\net10.0\MyMedia..8F610AFE.Up2Date
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia.App\obj\Debug\net10.0\MyMedia.App.dll
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia.App\obj\Debug\net10.0\refint\MyMedia.App.dll
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia.App\obj\Debug\net10.0\MyMedia.App.pdb
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia.App\obj\Debug\net10.0\ref\MyMedia.App.dll

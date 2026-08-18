@@ -1,0 +1,12 @@
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia.Domain\bin\Debug\net10.0\MyMedia.Domain.deps.json
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia.Domain\bin\Debug\net10.0\MyMedia.Domain.dll
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia.Domain\bin\Debug\net10.0\MyMedia.Domain.pdb
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia.Domain\obj\Debug\net10.0\MyMedia.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia.Domain\obj\Debug\net10.0\MyMedia.Domain.AssemblyInfoInputs.cache
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia.Domain\obj\Debug\net10.0\MyMedia.Domain.AssemblyInfo.cs
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia.Domain\obj\Debug\net10.0\MyMedia.Domain.csproj.CoreCompileInputs.cache
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia.Domain\obj\Debug\net10.0\MyMedia.Domain.sourcelink.json
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia.Domain\obj\Debug\net10.0\MyMedia.Domain.dll
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia.Domain\obj\Debug\net10.0\refint\MyMedia.Domain.dll
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia.Domain\obj\Debug\net10.0\MyMedia.Domain.pdb
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia.Domain\obj\Debug\net10.0\ref\MyMedia.Domain.dll

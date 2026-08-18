@@ -1,6 +1,6 @@
 ﻿using MyMedia.Domain.Entities;
 
-namespace MyMedia.App.DTOs;
+namespace MyMedia.AppLayer.DTOs;
 
 public class PagedResult<T>
 {

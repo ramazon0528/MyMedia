@@ -13,4 +13,9 @@
     <ProjectReference Include="..\MyMedia.Infrastructure\MyMedia.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ViewModels\Pages\" />
+    <Folder Include="Views\Pages\" />
+  </ItemGroup>
+
 </Project>

@@ -1,7 +1,7 @@
-﻿using MyMedia.App.DTOs;
+﻿using MyMedia.AppLayer.DTOs;
 using MyMedia.Domain.Entities;
 
-namespace MyMedia.App.Interfaces;
+namespace MyMedia.AppLayer.Interfaces;
 
 public interface IMediaRepository
 {
