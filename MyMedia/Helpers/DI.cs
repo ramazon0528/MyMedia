@@ -1,7 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using MyMedia.AppLayer.Services;
 using MyMedia.Infrastructure;
-using MyMedia.Infrastructure.Data;
 using MyMedia.ViewModels.Windows;
 
 namespace MyMedia.Helpers;

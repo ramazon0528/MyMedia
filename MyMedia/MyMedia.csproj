@@ -9,13 +9,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MyMedia.App\MyMedia.AppLayer.csproj" />
+    <ProjectReference Include="..\MyMedia.AppLayer\MyMedia.AppLayer.csproj" />
     <ProjectReference Include="..\MyMedia.Infrastructure\MyMedia.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="ViewModels\Pages\" />
     <Folder Include="Views\Pages\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="PropertyChanged.Fody" Version="4.1.0" />
   </ItemGroup>
 
 </Project>

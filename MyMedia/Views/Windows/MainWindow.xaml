@@ -6,9 +6,40 @@
         xmlns:local="clr-namespace:MyMedia"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <StackPanel>
+        <StackPanel Orientation="Horizontal">
+
+            <Button
+                Content="←"
+                Command="{Binding PrevPageCommand}"
+                IsEnabled="{Binding HasPrevPage}" />
+
+            <TextBlock
+                Margin="10,0"
+                VerticalAlignment="Center">
+
+                <Run Text="{Binding CurrentPage}" />
+                <Run Text=" / " />
+                <Run Text="{Binding TotalPages}" />
+
+            </TextBlock>
+
+            <Button
+                Content="→"
+                Command="{Binding NextPageCommand}"
+                IsEnabled="{Binding HasNextPage}" />
+
+        </StackPanel>
+
         <DataGrid ItemsSource="{Binding Medias}">
             
         </DataGrid>
-    </Grid>
+        
+        <Button Content="Load"
+                Command="{Binding LoadCommand}"
+                Width="200"
+                Height="40"
+                VerticalAlignment="Bottom"
+                Margin="10"/>
+    </StackPanel>
 </Window>

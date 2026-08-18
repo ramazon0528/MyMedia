@@ -68,3 +68,5 @@ D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\obj\Debug\net10.0-windows\M
 D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\obj\Debug\net10.0-windows\ref\MyMedia.dll
 D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\bin\Debug\net10.0-windows\MyMedia.AppLayer.dll
 D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\bin\Debug\net10.0-windows\MyMedia.AppLayer.pdb
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\obj\Debug\net10.0-windows\MyMedia.csproj.Fody.CopyLocal.cache
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\obj\Debug\net10.0-windows\MyMedia.csproj.Fody.RuntimeCopyLocal.cache

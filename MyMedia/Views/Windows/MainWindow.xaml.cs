@@ -17,13 +17,6 @@ namespace MyMedia
             InitializeComponent();
 
             DataContext = _mainViewModel;
-
-            Loaded += MainWindow_Loaded;
-        }
-
-        private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
-        {
-            await _mainViewModel.LoadMediasAsync();
         }
     }
 }

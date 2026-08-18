@@ -2963,8 +2963,8 @@
     },
     "MyMedia.AppLayer/1.0.0": {
       "type": "project",
-      "path": "../MyMedia.App/MyMedia.AppLayer.csproj",
-      "msbuildProject": "../MyMedia.App/MyMedia.AppLayer.csproj"
+      "path": "../MyMedia.AppLayer/MyMedia.AppLayer.csproj",
+      "msbuildProject": "../MyMedia.AppLayer/MyMedia.AppLayer.csproj"
     },
     "MyMedia.Domain/1.0.0": {
       "type": "project",
@@ -3016,8 +3016,8 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "D:\\02-SharpMaster\\CSharp\\WPF\\MyMedia\\MyMedia\\MyMedia.App\\MyMedia.AppLayer.csproj": {
-              "projectPath": "D:\\02-SharpMaster\\CSharp\\WPF\\MyMedia\\MyMedia\\MyMedia.App\\MyMedia.AppLayer.csproj"
+            "D:\\02-SharpMaster\\CSharp\\WPF\\MyMedia\\MyMedia\\MyMedia.AppLayer\\MyMedia.AppLayer.csproj": {
+              "projectPath": "D:\\02-SharpMaster\\CSharp\\WPF\\MyMedia\\MyMedia\\MyMedia.AppLayer\\MyMedia.AppLayer.csproj"
             },
             "D:\\02-SharpMaster\\CSharp\\WPF\\MyMedia\\MyMedia\\MyMedia.Domain\\MyMedia.Domain.csproj": {
               "projectPath": "D:\\02-SharpMaster\\CSharp\\WPF\\MyMedia\\MyMedia\\MyMedia.Domain\\MyMedia.Domain.csproj"
