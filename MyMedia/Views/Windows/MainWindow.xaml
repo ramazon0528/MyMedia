@@ -29,12 +29,28 @@
                 Command="{Binding NextPageCommand}"
                 IsEnabled="{Binding HasNextPage}" />
 
+            <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
+                     Width="100"/>
+            <Button Content="search"
+                    Command="{Binding SearchCommand}"/>
+
+            <ComboBox ItemsSource="{Binding Categories}"
+                      SelectedItem="{Binding SelectedCategory}"
+                      DisplayMemberPath="Name"/>
+           
+            <ComboBox ItemsSource="{Binding Genres}"
+                      SelectedItem="{Binding SelectedGenre}"
+                      DisplayMemberPath="Name"/>
+
+            <Button Content="Apply"
+                    Command="{Binding ApplyFiltersCommand}"/>
         </StackPanel>
 
-        <DataGrid ItemsSource="{Binding Medias}">
-            
-        </DataGrid>
-        
+        <DataGrid ItemsSource="{Binding Medias}"/>
+        <DataGrid ItemsSource="{Binding Categories}"/>
+        <DataGrid ItemsSource="{Binding Genres}"/>
+
+
         <Button Content="Load"
                 Command="{Binding LoadCommand}"
                 Width="200"

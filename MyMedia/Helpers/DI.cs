@@ -18,6 +18,8 @@ public class DI
         services.AddTransient<MainWindow>();
         services.AddTransient<MainViewModel>();
         services.AddTransient<MediaService>();
+        services.AddTransient<CategoryService>();
+        services.AddTransient<GenreService>();
 
         _serviceProvider = services.BuildServiceProvider();
     }

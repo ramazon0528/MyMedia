@@ -16,6 +16,8 @@ public static class InfrastructureDI
         services.AddDbContext<AppDbContext>(options => options.UseSqlite(connectionString));
 
         services.AddScoped<IMediaRepository, MediaRepository>();
+        services.AddScoped<ICategoryRepository, CategoryRepository>();
+        services.AddScoped<IGenreRepository, GenreRepository>();
 
         return services;
     }

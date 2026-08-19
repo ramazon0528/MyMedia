@@ -42,7 +42,7 @@ public class MediaRepository : IMediaRepository
         IQueryable<Media> query = _context.Medias.Include(x => x.Category).Include(x => x.Genre);
 
         if (!string.IsNullOrWhiteSpace(filter.SearchText))
-            query = query.Where(x => x.Name.Contains(filter.SearchText));
+            query = query.Where(x => x.Name.ToLower().Contains(filter.SearchText.ToLower()));
 
         if (filter.CategoryId.HasValue)
             query = query.Where(x => x.CategoryId == filter.CategoryId);
