@@ -3,6 +3,7 @@ using MyMedia.AppLayer.DTOs;
 using MyMedia.AppLayer.Services;
 using MyMedia.Commands;
 using MyMedia.Domain.Entities;
+using MyMedia.Infrastructure.Services;
 
 namespace MyMedia.ViewModels.Windows;
 
@@ -12,23 +13,32 @@ public class MainViewModel : ViewModelBase
     private readonly CategoryService _categoryService;
     private readonly GenreService _genreService;
 
-    private MediaFilter _filter = new() { ItemsPerPage = 2 };
+    private readonly IThemeService _themeService;
+    private MediaFilter _filter = new() { ItemsPerPage = 4 };
 
     public MainViewModel(
         MediaService mediaService,
         CategoryService categoryService,
-        GenreService genreService
+        GenreService genreService,
+        IThemeService themeService
     )
     {
         _mediaService = mediaService;
         _categoryService = categoryService;
         _genreService = genreService;
+        _themeService = themeService;
+
+        Themes = new(_themeService.GetThemes());
+        _selectedTheme = _themeService.CurrentTheme;
 
         LoadCommand = new AsyncRelayCommand(InitializeAsync);
         PrevPageCommand = new AsyncRelayCommand(PrevPageAsync, () => HasPrevPage);
         NextPageCommand = new AsyncRelayCommand(NextPageAsync, () => HasNextPage);
         SearchCommand = new AsyncRelayCommand(SearchAsync);
         ApplyFiltersCommand = new AsyncRelayCommand(ApplyFiltersAsync);
+        ResetFiltersCommand = new AsyncRelayCommand(ResetFiltersAsync);
+
+        SaveThemeCommand = new RelayCommand(SaveTheme);
     }
 
     private async Task InitializeAsync()
@@ -102,15 +112,56 @@ public class MainViewModel : ViewModelBase
     {
         _filter.CategoryId = SelectedCategory?.Id;
         _filter.GenreId = SelectedGenre?.Id;
+        _filter.SortDescending = SortDescending;
+        _filter.SortBy = SelectedSortOption switch
+        {
+            "Название" => MediaSort.Name,
+            "Рейтинг" => MediaSort.Rating,
+            "Дата" => MediaSort.Date,
+            _ => MediaSort.Name,
+        };
 
         CurrentPage = 1;
 
         await LoadMediasAsync();
     }
 
+    private async Task ResetFiltersAsync()
+    {
+        SearchText = string.Empty;
+        SelectedCategory = null;
+        SelectedGenre = null;
+
+        SortDescending = false;
+        SelectedSortOption = "Название";
+
+        _filter.SearchText = SearchText;
+        _filter.CategoryId = null;
+        _filter.GenreId = null;
+
+        _filter.SortDescending = SortDescending;
+        _filter.SortBy = MediaSort.Name;
+
+        CurrentPage = 1;
+
+        await LoadMediasAsync();
+    }
+
+    private void SaveTheme()
+    {
+        if (SelectedTheme == null)
+            return;
+
+        _themeService.SaveTheme(SelectedTheme);
+    }
+
     public ObservableCollection<Media> Medias { get; } = [];
     public ObservableCollection<Category> Categories { get; } = [];
     public ObservableCollection<Genre> Genres { get; } = [];
+
+    public ObservableCollection<string> SortOptions { get; } = ["Название", "Рейтинг", "Дата"];
+    public string SelectedSortOption { get; set; } = string.Empty;
+    public bool SortDescending { get; set; } = false;
 
     public Category? SelectedCategory { get; set; }
     public Genre? SelectedGenre { get; set; }
@@ -122,9 +173,31 @@ public class MainViewModel : ViewModelBase
     public bool HasNextPage => CurrentPage < TotalPages;
     public string SearchText { get; set; } = string.Empty;
 
+    public List<string> Themes { get; } = [];
+    private string? _selectedTheme;
+
+    public string? SelectedTheme
+    {
+        get => _selectedTheme;
+        set
+        {
+            if (_selectedTheme == value)
+                return;
+
+            _selectedTheme = value;
+            OnPropertyChanged();
+
+            if (_selectedTheme != null)
+                _themeService.SetTheme(_selectedTheme);
+        }
+    }
+
     public AsyncRelayCommand LoadCommand { get; }
     public AsyncRelayCommand PrevPageCommand { get; }
     public AsyncRelayCommand NextPageCommand { get; }
     public AsyncRelayCommand SearchCommand { get; }
     public AsyncRelayCommand ApplyFiltersCommand { get; }
+    public AsyncRelayCommand ResetFiltersCommand { get; }
+
+    public RelayCommand SaveThemeCommand { get; }
 }
