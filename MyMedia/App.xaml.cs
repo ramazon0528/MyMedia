@@ -4,6 +4,7 @@ using System.Windows;
 using MyMedia.AppLayer.Services;
 using MyMedia.Helpers;
 using MyMedia.Infrastructure.Services;
+using MyMedia.Services.Interfaces;
 
 namespace MyMedia
 {

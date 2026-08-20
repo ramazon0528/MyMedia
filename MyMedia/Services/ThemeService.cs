@@ -4,7 +4,7 @@ using System.Text.Json.Nodes;
 using System.Windows;
 using Microsoft.Extensions.Options;
 using MyMedia.AppLayer.Configuration;
-using MyMedia.AppLayer.Services;
+using MyMedia.Services.Interfaces;
 
 namespace MyMedia.Infrastructure.Services;
 

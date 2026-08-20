@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET10_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NET10_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\App.xaml
-3-1490513083
+131671515455
 231022432735
-11-2124270505
+14-1709747677
 239-191764105
-Styles\AppColors\DarkTheme.xaml;Styles\AppColors\VioletTheme.xaml;Views\Windows\MainWindow.xaml;
+Styles\AppColors\AppColors.xaml;Styles\AppColors\DarkTheme.xaml;Styles\AppColors\VioletTheme.xaml;Styles\Controls\Borders.xaml;Styles\Controls\Buttons.xaml;Styles\Controls\ComboBoxes.xaml;Styles\Controls\Lines.xaml;Styles\Controls\ListBoxes.xaml;Styles\Controls\RadioButtons.xaml;Styles\Controls\TextBlocks.xaml;Styles\Controls\TextBoxes.xaml;Styles\Controls\ToggleButtons.xaml;Views\Windows\MainWindow.xaml;
 
 False
 

@@ -1,4 +1,4 @@
-﻿namespace MyMedia.AppLayer.Services;
+﻿namespace MyMedia.Services.Interfaces;
 
 public interface IThemeService
 {

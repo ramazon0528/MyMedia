@@ -4,15 +4,397 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:MyMedia.ViewModels.Windows"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:local="clr-namespace:MyMedia"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
+        d:DataContext="{d:DesignInstance Type=vm:MainViewModel, IsDesignTimeCreatable=False}"
         AllowsTransparency="True"
+        ResizeMode="CanResizeWithGrip"
         Background="{x:Null}"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow"
+        Height="600" Width="1000"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown">
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     
-    <Border>
+    <Border Background="{DynamicResource AppBackground}"
+            CornerRadius="10">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="230"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
             
+            <!-- Category panel -->
+            
+            
+            <Border Background="{DynamicResource BackgroundPrimary}"
+                    Margin="20 35 10 20"
+                    CornerRadius="10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="60"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Категории"
+                               Style="{DynamicResource HeaderXL}"/>
+
+                    <Line X1="10" X2="190"
+                          Grid.Row="1"
+                          VerticalAlignment="Top"/>
+
+                    <ListBox Grid.Row="1"
+                             Background="{x:Null}"
+                             BorderThickness="0"
+                             Margin="0 20"
+                             ItemsSource="{Binding Categories}"
+                             SelectedItem="{Binding SelectedCategory}">
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem">
+                                <Setter Property="HorizontalContentAlignment"
+                                        Value="Stretch"/>
+                                <Setter Property="Background"
+                                        Value="Transparent"/>
+                                <Setter Property="BorderThickness"
+                                        Value="0"/>
+
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="ListBoxItem">
+                                            <ContentPresenter/>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
+                        
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border Style="{DynamicResource CategoryListBoxItem}">
+                                    <TextBlock Text="{Binding Name}"
+                                               Style="{DynamicResource CategoryListBoxName}"/>
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+                    <Line X1="10" X2="190"
+                          Grid.Row="1"
+                          VerticalAlignment="Bottom"/>
+
+                    <StackPanel Grid.Row="2"
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Center"
+                                FlowDirection="RightToLeft">
+                        
+                        <Button Style="{DynamicResource AddButton}"
+                                Content="{md:PackIcon Kind=Add, Size=20}"/>
+                        
+                        <Button Style="{DynamicResource DeleteButton}"
+                                Content="{md:PackIcon Kind=Delete, Size=20}"/>
+                        
+                        <Button Style="{DynamicResource EditButton}"
+                                Content="{md:PackIcon Kind=Edit, Size=20}"/>
+                        
+                        <Button Style="{DynamicResource SquareButton}"
+                                Content="{md:PackIcon Kind=Settings, Size=20}"/>
+                        
+                    </StackPanel>
+                </Grid>
+            </Border>
+            
+            
+            <!-- Media panel -->
+            
+            
+            <Border Grid.Column="1"
+                    Margin="10 35 20 20"
+                    CornerRadius="10"
+                    Background="{DynamicResource BackgroundPrimary}">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="60"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid VerticalAlignment="Bottom">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition MinWidth="120" MaxWidth="200"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition MinWidth="150" MaxWidth="200"/>
+                            <ColumnDefinition MinWidth="150" MaxWidth="200"/>
+                            <ColumnDefinition MinWidth="150"  MaxWidth="200"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Медия"
+                                   Style="{DynamicResource HeaderXL}"/>
+
+                        <Rectangle Stroke="{DynamicResource SecondaryColor}"
+                                   Width="1"
+                                   HorizontalAlignment="Right"/>
+
+                        <TextBlock Grid.Column="1"
+                                   Style="{DynamicResource HeaderXL}">
+                            <Run Text="Anime" Foreground="{DynamicResource PrimaryColor}"/>
+                            <Run Text=":"/>
+                            <Run Text=""/>
+                            <Run Text="123"/>
+                        </TextBlock>
+                        
+                        <ComboBox Style="{DynamicResource MainComboBox}"
+                                  Grid.Column="2"
+                                  Margin="10 0"
+                                  Tag="Жанры"
+                                  ItemsSource="{Binding Genres}"
+                                  SelectedItem="{Binding SelectedGenre}"
+                                  DisplayMemberPath="Name"/>
+                        
+                        <ComboBox Style="{DynamicResource MainComboBox}"
+                                  Grid.Column="3"
+                                  Margin="10 0"
+                                  Tag="Сортировка"
+                                  ItemsSource="{Binding SortOptions}"
+                                  SelectedItem="{Binding SelectedSortOption}"/>
+
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Right"
+                                    Grid.Column="4"
+                                    Margin="0 0 5 0">
+
+                            <ToggleButton Style="{DynamicResource SortDescendingButton}"
+                                          Command="{Binding ApplyFiltersCommand}"
+                                          IsChecked="{Binding SortDescending}"
+                                          Margin="5 0"/>
+
+                            <Button Style="{DynamicResource DeleteButton}"
+                                    Content="{md:PackIcon Kind=FilterRemove, Size=20}"
+                                    Command="{Binding ResetFiltersCommand}"/>
+                            
+                            <Button Style="{DynamicResource AddButton}"
+                                    Content="{md:PackIcon Kind=FilterCheck, Size=20}"
+                                    Command="{Binding ApplyFiltersCommand}"/>
+                        </StackPanel>
+                    </Grid>
+
+                    <Rectangle Height="1"
+                               Grid.Row="1"
+                               Margin="10"
+                               Stroke="{DynamicResource SecondaryColor}"
+                               VerticalAlignment="Top"/>
+
+                    <ListBox Grid.Row="1"
+                             Margin="20"
+                             ItemsSource="{Binding Medias}"
+                             Background="{x:Null}"
+                             BorderThickness="0"
+                             ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem">
+                                <Setter Property="Background"
+                                        Value="Transparent"/>
+                                <Setter Property="BorderThickness"
+                                        Value="0"/>
+
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="ListBoxItem">
+                                            <ContentPresenter/>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
+
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel />
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border Style="{DynamicResource MediaListBoxItem}">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="4*"/>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+
+                                        <Border CornerRadius="10"
+                                                Margin="5">
+                                            <Border.Background>
+                                                <ImageBrush ImageSource="{Binding ImagePath}"
+                                                            Stretch="UniformToFill"/>
+                                            </Border.Background>
+
+                                        </Border>
+
+                                        <TextBlock Grid.Row="1"
+                                                   Text="{Binding Name}"
+                                                   Style="{DynamicResource MediaListBoxName}"/>
+
+                                        <ToggleButton Grid.Row="1"
+                                                      IsChecked="{Binding IsCompleted}"
+                                                      Style="{DynamicResource MediaIsCompletedToggleButton}"/>
+
+                                        <Rectangle Grid.Row="2"
+                                                   Height="0.5"
+                                                   Stroke="{DynamicResource SecondaryColor}"
+                                                   VerticalAlignment="Top"
+                                                   Margin="10 2"/>
+
+                                        <StackPanel Grid.Row="2"
+                                                    Orientation="Horizontal"
+                                                    HorizontalAlignment="Center"
+                                                    Margin="0 5 0 0">
+
+                                            <md:PackIcon Kind="CalendarMultiselect"
+                                                         Width="20" Height="20"
+                                                         VerticalAlignment="Center"
+                                                         Foreground="{DynamicResource PrimaryColor}"/>
+
+                                            <TextBlock Style="{DynamicResource MediaListBoxInfo}"
+                                                       Text="{Binding Date, StringFormat=dd.MM.yyyy}"/>
+
+                                            <md:PackIcon Kind="StarHalfFull"
+                                                         Margin="10 0 0 0"
+                                                         Width="20" Height="20"
+                                                         Foreground="{DynamicResource PrimaryColor}"
+                                                         VerticalAlignment="Center"/>
+
+                                            <TextBlock Style="{DynamicResource MediaListBoxInfo}"
+                                                       Text="{Binding Rating}"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    
+                    <Rectangle Height="1"
+                               Grid.Row="1"
+                               Margin="10"
+                               Stroke="{DynamicResource SecondaryColor}"
+                               VerticalAlignment="Bottom"/>
+
+
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox Tag="Поиск"
+                                 Text="{Binding SearchText}"/>
+
+                        <Button Width="38" Height="38"
+                                HorizontalAlignment="Right"
+                                Margin="11"
+                                Content="{md:PackIcon Kind=Search, Size=20}"
+                                Style="{DynamicResource SquareButton}"
+                                Command="{Binding SearchCommand}"/>
+
+                        
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Center"
+                                    Grid.Column="1">
+                            
+                            <Button Style="{DynamicResource SquareButton}"
+                                    Content="{md:PackIcon Kind=MenuLeft, Size=20}"
+                                    Command="{Binding PrevPageCommand}"
+                                    IsEnabled="{Binding HasPrevPage}"/>
+
+
+                            <Border Background="{DynamicResource PrimaryColor}"
+                                    Width="80" Height="40"
+                                    Margin="5"
+                                    CornerRadius="10">
+                                <StackPanel Orientation="Horizontal"
+                                            HorizontalAlignment="Center">
+                                    <TextBlock Style="{DynamicResource PaginationText}"
+                                               Text="{Binding CurrentPage}"/>
+                                    <TextBlock Style="{DynamicResource PaginationText}"
+                                               Text="/"
+                                               Margin="10"/>
+                                    <TextBlock Style="{DynamicResource PaginationText}"
+                                               Text="{Binding TotalPages}"/>
+                                </StackPanel>
+                            </Border>
+
+                            <Button Style="{DynamicResource SquareButton}"
+                                    Content="{md:PackIcon Kind=MenuRight, Size=20}"
+                                    Command="{Binding NextPageCommand}"
+                                    IsEnabled="{Binding HasNextPage}"/>
+                            
+                        </StackPanel>
+                        
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Center"
+                                    Grid.Column="2">
+                            
+                            <Button Style="{DynamicResource EditButton}"
+                                    Content="{md:PackIcon Kind=Edit, Size=20}"/>
+                            
+                            <Button Style="{DynamicResource DeleteButton}"
+                                    Content="{md:PackIcon Kind=Delete, Size=20}"/>
+                            
+                        </StackPanel>
+
+                        <Button Style="{DynamicResource BigButton}"
+                                Content="Добавить"
+                                Grid.Column="3"/>
+
+                    </Grid>
+                </Grid>
+                
+            </Border>
+
+            <StackPanel Orientation="Horizontal">
+
+                <md:PackIcon Kind="MovieOpen"
+                             Margin="20 10 0 5"
+                             Width="20" Height="20"
+                             Foreground="{DynamicResource PrimaryColor}"/>
+
+                <TextBlock Text="Media Vault"
+                           VerticalAlignment="Top"
+                           Margin="10"
+                           Foreground="{DynamicResource White}"
+                           Style="{DynamicResource HeaderL}"/>
+            </StackPanel>
+            
+
+            <StackPanel Grid.ColumnSpan="2"
+                        VerticalAlignment="Top"
+                        Height="25"
+                        Margin="0 5"
+                        Orientation="Horizontal"
+                        FlowDirection="RightToLeft">
+                
+                <Button Style="{DynamicResource CloseButton}"
+                        Command="{Binding CloseCommand}"/>
+                
+                <Button Style="{DynamicResource MaximizeButton}"
+                        Command="{Binding MaximizeCommand}"/>
+                
+                <Button Style="{DynamicResource MinimizeButton}"
+                        Command="{Binding MinimizeCommand}"/>
+            </StackPanel>
+
+        </Grid>
     </Border>
 </Window>

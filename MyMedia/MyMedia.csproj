@@ -24,7 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Styles\Controls\" />
     <Folder Include="ViewModels\Pages\" />
     <Folder Include="Views\Pages\" />
   </ItemGroup>

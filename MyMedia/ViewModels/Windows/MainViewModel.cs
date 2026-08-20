@@ -1,9 +1,10 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows;
 using MyMedia.AppLayer.DTOs;
 using MyMedia.AppLayer.Services;
 using MyMedia.Commands;
 using MyMedia.Domain.Entities;
-using MyMedia.Infrastructure.Services;
+using MyMedia.Services.Interfaces;
 
 namespace MyMedia.ViewModels.Windows;
 
@@ -14,19 +15,22 @@ public class MainViewModel : ViewModelBase
     private readonly GenreService _genreService;
 
     private readonly IThemeService _themeService;
+    private readonly IWindowService _windowService;
     private MediaFilter _filter = new() { ItemsPerPage = 4 };
 
     public MainViewModel(
         MediaService mediaService,
         CategoryService categoryService,
         GenreService genreService,
-        IThemeService themeService
+        IThemeService themeService,
+        IWindowService windowService
     )
     {
         _mediaService = mediaService;
         _categoryService = categoryService;
         _genreService = genreService;
         _themeService = themeService;
+        _windowService = windowService;
 
         Themes = new(_themeService.GetThemes());
         _selectedTheme = _themeService.CurrentTheme;
@@ -39,6 +43,10 @@ public class MainViewModel : ViewModelBase
         ResetFiltersCommand = new AsyncRelayCommand(ResetFiltersAsync);
 
         SaveThemeCommand = new RelayCommand(SaveTheme);
+
+        CloseCommand = new(_windowService.Close);
+        MaximizeCommand = new(_windowService.Maximize);
+        MinimizeCommand = new(_windowService.Minimize);
     }
 
     private async Task InitializeAsync()
@@ -163,7 +171,19 @@ public class MainViewModel : ViewModelBase
     public string SelectedSortOption { get; set; } = string.Empty;
     public bool SortDescending { get; set; } = false;
 
-    public Category? SelectedCategory { get; set; }
+    private Category? _category;
+    public Category? SelectedCategory
+    {
+        get => _category;
+        set
+        {
+            _category = value;
+            OnPropertyChanged();
+            _filter.CategoryId = SelectedCategory?.Id;
+            CurrentPage = 1;
+            _ = LoadMediasAsync();
+        }
+    }
     public Genre? SelectedGenre { get; set; }
 
     public int CurrentPage { get; set; } = 1;
@@ -200,4 +220,7 @@ public class MainViewModel : ViewModelBase
     public AsyncRelayCommand ResetFiltersCommand { get; }
 
     public RelayCommand SaveThemeCommand { get; }
+    public RelayCommand CloseCommand { get; }
+    public RelayCommand MaximizeCommand { get; }
+    public RelayCommand MinimizeCommand { get; }
 }

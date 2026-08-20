@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Input;
 using MyMedia.ViewModels.Windows;
 
 namespace MyMedia
@@ -17,6 +18,11 @@ namespace MyMedia
             InitializeComponent();
 
             DataContext = _mainViewModel;
+        }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
         }
     }
 }

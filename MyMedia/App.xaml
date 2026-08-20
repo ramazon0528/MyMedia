@@ -5,7 +5,17 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/AppColors/VioletTheme.xaml"/>
                 
+                <ResourceDictionary Source="/Styles/Controls/Buttons.xaml"/>
+                <ResourceDictionary Source="/Styles/Controls/Borders.xaml"/>
+                <ResourceDictionary Source="/Styles/Controls/RadioButtons.xaml"/>
+                <ResourceDictionary Source="/Styles/Controls/ComboBoxes.xaml"/>
+                <ResourceDictionary Source="/Styles/Controls/Lines.xaml"/>
+                <ResourceDictionary Source="/Styles/Controls/TextBlocks.xaml"/>
+                <ResourceDictionary Source="/Styles/Controls/TextBoxes.xaml"/>
+                <ResourceDictionary Source="/Styles/Controls/ToggleButtons.xaml"/>
+                <ResourceDictionary Source="/Styles/Controls/ListBoxes.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

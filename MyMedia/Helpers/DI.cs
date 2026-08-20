@@ -1,9 +1,12 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using System.Windows;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MyMedia.AppLayer.Configuration;
 using MyMedia.AppLayer.Services;
 using MyMedia.Infrastructure;
 using MyMedia.Infrastructure.Services;
+using MyMedia.Services;
+using MyMedia.Services.Interfaces;
 using MyMedia.ViewModels.Windows;
 
 namespace MyMedia.Helpers;
@@ -32,6 +35,7 @@ public class DI
         services.Configure<ThemeOptions>(configuration.GetSection("Theme"));
 
         services.AddSingleton<IThemeService, ThemeService>();
+        services.AddSingleton<IWindowService, WindowService>();
 
         _serviceProvider = services.BuildServiceProvider();
     }
