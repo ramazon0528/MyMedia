@@ -1,9 +1,11 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows;
+using System.Windows.Input;
 using MyMedia.AppLayer.DTOs;
 using MyMedia.AppLayer.Services;
 using MyMedia.Commands;
 using MyMedia.Domain.Entities;
+using MyMedia.Services;
 using MyMedia.Services.Interfaces;
 
 namespace MyMedia.ViewModels.Windows;
@@ -16,6 +18,9 @@ public class MainViewModel : ViewModelBase
 
     private readonly IThemeService _themeService;
     private readonly IWindowService _windowService;
+    private readonly IDialogService _dialogService;
+    private readonly IImageService _imageService;
+
     private MediaFilter _filter = new() { ItemsPerPage = 4 };
 
     public MainViewModel(
@@ -23,7 +28,9 @@ public class MainViewModel : ViewModelBase
         CategoryService categoryService,
         GenreService genreService,
         IThemeService themeService,
-        IWindowService windowService
+        IWindowService windowService,
+        IDialogService dialogService,
+        IImageService imageService
     )
     {
         _mediaService = mediaService;
@@ -31,18 +38,22 @@ public class MainViewModel : ViewModelBase
         _genreService = genreService;
         _themeService = themeService;
         _windowService = windowService;
+        _dialogService = dialogService;
+        _imageService = imageService;
 
         Themes = new(_themeService.GetThemes());
         _selectedTheme = _themeService.CurrentTheme;
 
-        LoadCommand = new AsyncRelayCommand(InitializeAsync);
-        PrevPageCommand = new AsyncRelayCommand(PrevPageAsync, () => HasPrevPage);
-        NextPageCommand = new AsyncRelayCommand(NextPageAsync, () => HasNextPage);
-        SearchCommand = new AsyncRelayCommand(SearchAsync);
-        ApplyFiltersCommand = new AsyncRelayCommand(ApplyFiltersAsync);
-        ResetFiltersCommand = new AsyncRelayCommand(ResetFiltersAsync);
+        LoadCommand = new(InitializeAsync);
+        PrevPageCommand = new(PrevPageAsync, () => HasPrevPage);
+        NextPageCommand = new(NextPageAsync, () => HasNextPage);
+        SearchCommand = new(SearchAsync);
+        ApplyFiltersCommand = new(ApplyFiltersAsync);
+        ResetFiltersCommand = new(ResetFiltersAsync);
+        AddMediaCommand = new(AddMediaAsync);
 
-        SaveThemeCommand = new RelayCommand(SaveTheme);
+        SelectImageCommand = new(SelectImage);
+        SaveThemeCommand = new(SaveTheme);
 
         CloseCommand = new(_windowService.Close);
         MaximizeCommand = new(_windowService.Maximize);
@@ -155,12 +166,45 @@ public class MainViewModel : ViewModelBase
         await LoadMediasAsync();
     }
 
+    private async Task AddMediaAsync()
+    {
+        var media = new Media()
+        {
+            Name = Media.Name,
+            Date = Media.Date,
+            CategoryId = MediaFormSelectedCategory.Id,
+            GenreId = MediaFormSelectedGenre.Id,
+            ImagePath = Media.ImagePath,
+            IsCompleted = Media.IsCompleted,
+            Rating = Media.Rating,
+        };
+
+        await _mediaService.AddAsync(media);
+        await ApplyFiltersAsync();
+
+        Media = new();
+
+        OnPropertyChanged(nameof(Media));
+    }
+
     private void SaveTheme()
     {
         if (SelectedTheme == null)
             return;
 
         _themeService.SaveTheme(SelectedTheme);
+    }
+
+    private void SelectImage()
+    {
+        var sourcePath = _dialogService.ShowDialog();
+
+        if (sourcePath == null)
+            return;
+
+        Media.ImagePath = _imageService.CopyImage(sourcePath);
+
+        OnPropertyChanged(nameof(Media));
     }
 
     public ObservableCollection<Media> Medias { get; } = [];
@@ -184,7 +228,12 @@ public class MainViewModel : ViewModelBase
             _ = LoadMediasAsync();
         }
     }
+    public Category MediaFormSelectedCategory { get; set; } = new();
+    public Genre MediaFormSelectedGenre { get; set; } = new();
     public Genre? SelectedGenre { get; set; }
+
+    public Media SelectedMedia { get; set; } = null!;
+    public Media Media { get; set; } = new();
 
     public int CurrentPage { get; set; } = 1;
     public int TotalPages { get; set; }
@@ -193,9 +242,9 @@ public class MainViewModel : ViewModelBase
     public bool HasNextPage => CurrentPage < TotalPages;
     public string SearchText { get; set; } = string.Empty;
 
-    public List<string> Themes { get; } = [];
-    private string? _selectedTheme;
+    public ObservableCollection<string> Themes { get; } = [];
 
+    private string? _selectedTheme;
     public string? SelectedTheme
     {
         get => _selectedTheme;
@@ -218,7 +267,9 @@ public class MainViewModel : ViewModelBase
     public AsyncRelayCommand SearchCommand { get; }
     public AsyncRelayCommand ApplyFiltersCommand { get; }
     public AsyncRelayCommand ResetFiltersCommand { get; }
+    public AsyncRelayCommand AddMediaCommand { get; }
 
+    public RelayCommand SelectImageCommand { get; }
     public RelayCommand SaveThemeCommand { get; }
     public RelayCommand CloseCommand { get; }
     public RelayCommand MaximizeCommand { get; }

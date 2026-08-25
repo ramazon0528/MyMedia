@@ -34,5 +34,21 @@
             </DataTrigger>
         </Style.Triggers>
     </Style>
-    
+
+
+    <Style x:Key="MediaForm" TargetType="Border">
+        <Setter Property="Width" Value="250"/>
+        <Setter Property="Panel.ZIndex" Value="1"/>
+        <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="Margin" Value="0 35 20 20"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundPrimary}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource SecondaryColor}"/>
+        <Setter Property="BorderThickness" Value="0.2"/>
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <TranslateTransform X="300"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>

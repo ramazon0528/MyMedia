@@ -34,6 +34,8 @@ public class DI
 
         services.Configure<ThemeOptions>(configuration.GetSection("Theme"));
 
+        services.AddSingleton<IDialogService, DialogService>();
+        services.AddSingleton<IImageService, ImageService>();
         services.AddSingleton<IThemeService, ThemeService>();
         services.AddSingleton<IWindowService, WindowService>();
 

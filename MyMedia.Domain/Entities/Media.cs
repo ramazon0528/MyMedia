@@ -7,9 +7,14 @@ public class Media
     public decimal Rating { get; set; }
     public int? CategoryId { get; set; }
     public int? GenreId { get; set; }
-    public string ImagePath { get; set; } = string.Empty;
+    public string? ImagePath { get; set; } = string.Empty;
     public bool IsCompleted { get; set; } = true;
     public DateTime Date { get; set; } = DateTime.Now;
     public Category? Category { get; set; }
     public Genre? Genre { get; set; }
+
+    public string? ImageFullPath =>
+        string.IsNullOrWhiteSpace(ImagePath)
+            ? null
+            : Path.Combine(AppContext.BaseDirectory, "Images", ImagePath);
 }
