@@ -18,6 +18,8 @@
                 <ResourceDictionary Source="/Styles/Controls/ListBoxes.xaml"/>
                 <ResourceDictionary Source="/Styles/Controls/Sliders.xaml"/>
                 <ResourceDictionary Source="/Styles/Controls/DatePicker.xaml"/>
+                <ResourceDictionary Source="/Styles/Controls/Expanders.xaml"/>
+                <ResourceDictionary Source="/Styles/Controls/ScrollViewers.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
