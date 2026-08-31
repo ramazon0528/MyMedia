@@ -391,7 +391,7 @@
                         <Expander Style="{DynamicResource ModernExpander}">
                             <Expander.Header>
                                 <StackPanel Orientation="Horizontal">
-                                    <md:PackIcon Kind="FolderPlay"
+                                    <md:PackIcon Kind="AnimationPlay"
                                                  Width="20" Height="20"
                                                  VerticalAlignment="Center"
                                                  Margin="10 0"
@@ -418,7 +418,7 @@
                         <Expander Style="{DynamicResource ModernExpander}">
                             <Expander.Header>
                                 <StackPanel Orientation="Horizontal">
-                                    <md:PackIcon Kind="TagHeartOutline"
+                                    <md:PackIcon Kind="Ghost"
                                                  Width="20" Height="20"
                                                  VerticalAlignment="Center"
                                                  Margin="10 0"
