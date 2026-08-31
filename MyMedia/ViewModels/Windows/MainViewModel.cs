@@ -51,6 +51,7 @@ public class MainViewModel : ViewModelBase
         ApplyFiltersCommand = new(ApplyFiltersAsync);
         ResetFiltersCommand = new(ResetFiltersAsync);
         AddMediaCommand = new(AddMediaAsync);
+        AddCategoryCommand = new(AddCategoryAsync, () => !string.IsNullOrWhiteSpace(CategoryName));
 
         SelectImageCommand = new(SelectImage);
         SaveThemeCommand = new(SaveTheme);
@@ -187,6 +188,21 @@ public class MainViewModel : ViewModelBase
         OnPropertyChanged(nameof(Media));
     }
 
+    private async Task AddCategoryAsync()
+    {
+        if (string.IsNullOrWhiteSpace(CategoryName))
+            return;
+
+        var category = new Category() { Name = CategoryName };
+
+        await _categoryService.AddAsync(category);
+        await InitializeAsync();
+
+        CategoryName = string.Empty;
+
+        OnPropertyChanged(nameof(CategoryName));
+    }
+
     private void SaveTheme()
     {
         if (SelectedTheme == null)
@@ -234,6 +250,8 @@ public class MainViewModel : ViewModelBase
 
     public Media SelectedMedia { get; set; } = null!;
     public Media Media { get; set; } = new();
+    public string CategoryName { get; set; } = string.Empty;
+    public string GenreName { get; set; } = string.Empty;
 
     public int CurrentPage { get; set; } = 1;
     public int TotalPages { get; set; }
@@ -267,6 +285,7 @@ public class MainViewModel : ViewModelBase
     public AsyncRelayCommand SearchCommand { get; }
     public AsyncRelayCommand ApplyFiltersCommand { get; }
     public AsyncRelayCommand ResetFiltersCommand { get; }
+    public AsyncRelayCommand AddCategoryCommand { get; }
     public AsyncRelayCommand AddMediaCommand { get; }
 
     public RelayCommand SelectImageCommand { get; }

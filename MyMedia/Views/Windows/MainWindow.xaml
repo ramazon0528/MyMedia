@@ -403,11 +403,13 @@
                             </Expander.Header>
                             <StackPanel>
                                 <TextBox Tag="Введите категорию"
-                                         Margin="10"/>
+                                         Margin="10"
+                                         Text="{Binding CategoryName}"/>
 
                                 <Button Style="{DynamicResource BigButton}"
                                         Content="Добавить"
-                                        FontSize="12"/>
+                                        FontSize="12"
+                                        Command="{Binding AddCategoryCommand}"/>
                             </StackPanel>
                         </Expander>
 
@@ -438,8 +440,7 @@
 
                         <Rectangle Style="{DynamicResource HorizontalRectangle}"/>
 
-                        <Expander Style="{DynamicResource ModernExpander}"
-                                  IsExpanded="True">
+                        <Expander Style="{DynamicResource ModernExpander}">
                             <Expander.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <md:PackIcon Kind="Multimedia"
