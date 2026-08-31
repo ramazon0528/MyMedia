@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MyMedia.AppLayer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6fd5791cc116cc29eab16aa0afa6acc3bea7738c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+84b7e2772ee3738131ea23db05ba48d1670d71f7")]
 [assembly: System.Reflection.AssemblyProductAttribute("MyMedia.AppLayer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MyMedia.AppLayer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -51,7 +51,8 @@ public class MainViewModel : ViewModelBase
         ApplyFiltersCommand = new(ApplyFiltersAsync);
         ResetFiltersCommand = new(ResetFiltersAsync);
         AddMediaCommand = new(AddMediaAsync);
-        AddCategoryCommand = new(AddCategoryAsync, () => !string.IsNullOrWhiteSpace(CategoryName));
+        AddCategoryCommand = new(AddCategoryAsync);
+        AddGenreCommand = new(AddGenreAsync);
 
         SelectImageCommand = new(SelectImage);
         SaveThemeCommand = new(SaveTheme);
@@ -203,6 +204,21 @@ public class MainViewModel : ViewModelBase
         OnPropertyChanged(nameof(CategoryName));
     }
 
+    private async Task AddGenreAsync()
+    {
+        if (string.IsNullOrWhiteSpace(GenreName))
+            return;
+
+        var genre = new Genre() { Name = GenreName };
+
+        await _genreService.AddAsync(genre);
+        await InitializeAsync();
+
+        GenreName = string.Empty;
+
+        OnPropertyChanged(nameof(GenreName));
+    }
+
     private void SaveTheme()
     {
         if (SelectedTheme == null)
@@ -286,6 +302,7 @@ public class MainViewModel : ViewModelBase
     public AsyncRelayCommand ApplyFiltersCommand { get; }
     public AsyncRelayCommand ResetFiltersCommand { get; }
     public AsyncRelayCommand AddCategoryCommand { get; }
+    public AsyncRelayCommand AddGenreCommand { get; }
     public AsyncRelayCommand AddMediaCommand { get; }
 
     public RelayCommand SelectImageCommand { get; }

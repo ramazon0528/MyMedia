@@ -430,11 +430,13 @@
                             </Expander.Header>
                             <StackPanel>
                                 <TextBox Tag="Введите жанр" 
-                                         Margin="10"/>
+                                         Margin="10"
+                                         Text="{Binding GenreName}"/>
 
                                 <Button Style="{DynamicResource BigButton}"
                                         Content="Добавить"
-                                        FontSize="12"/>
+                                        FontSize="12"
+                                        Command="{Binding AddGenreCommand}"/>
                             </StackPanel>
                         </Expander>
 
