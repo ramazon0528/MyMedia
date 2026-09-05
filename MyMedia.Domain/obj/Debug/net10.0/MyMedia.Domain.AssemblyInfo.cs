@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MyMedia.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8e843424f5e5ebf1f7fc3b20a04697544763cbea")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+222ff1ed3a4778d49abbe8aaad2883aa4bf5859f")]
 [assembly: System.Reflection.AssemblyProductAttribute("MyMedia.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MyMedia.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

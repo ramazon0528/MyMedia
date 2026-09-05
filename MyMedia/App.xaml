@@ -1,7 +1,9 @@
 ﻿<Application x:Class="MyMedia.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:MyMedia">
+             xmlns:local="clr-namespace:MyMedia"
+             xmlns:vm="clr-namespace:MyMedia.ViewModels.Pages"
+             xmlns:views="clr-namespace:MyMedia.Views.Pages">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -21,6 +23,26 @@
                 <ResourceDictionary Source="/Styles/Controls/Expanders.xaml"/>
                 <ResourceDictionary Source="/Styles/Controls/ScrollViewers.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type vm:MediaViewModel}">
+                <views:MediaPage/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:AddMediaViewModel}">
+                <views:AddMediaPage/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type vm:CategoryViewModel}">
+                <views:CategoryPage/>
+            </DataTemplate>
+           
+            <DataTemplate DataType="{x:Type vm:GenreViewModel}">
+                <views:GenrePage/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type vm:SettingsViewModel}">
+                <views:SettingsPage/>
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

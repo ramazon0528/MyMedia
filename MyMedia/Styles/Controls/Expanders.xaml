@@ -36,7 +36,6 @@
                                                     ContentTemplate="{Binding HeaderTemplate, RelativeSource={RelativeSource AncestorType=Expander}}"
                                                     VerticalAlignment="Center"
                                                     HorizontalAlignment="Left"
-                                                    Margin="0,0,65,0"
                                                     x:Name="Header"/>
 
                                                 <md:PackIcon Kind="ArrowDownDropCircleOutline"

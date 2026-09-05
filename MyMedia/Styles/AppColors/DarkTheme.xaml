@@ -1,25 +1,38 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    
-    <SolidColorBrush x:Key="PrimaryColor" Color="#F162AA"/>
-    <SolidColorBrush x:Key="PrimaryColorHover" Color="#F471B9"/>
-    <SolidColorBrush x:Key="PrimaryColorPressed" Color="#D85BA0"/>
-    <SolidColorBrush x:Key="SecondaryColor" Color="#7974B5"/>
 
-    <SolidColorBrush x:Key="BackgroundPrimary" Color="#221A49"/>
-    <SolidColorBrush x:Key="BackgroundSecondary" Color="#262253"/>
-    <SolidColorBrush x:Key="BackgroundTertiary" Color="#272759"/>
-    <SolidColorBrush x:Key="BackgroundControl" Color="#2E2C60"/>
+    <SolidColorBrush x:Key="PrimaryColor" Color="#17CE88"/>
+    <SolidColorBrush x:Key="PrimaryColorHover" Color="#64FFC3"/>
+    <SolidColorBrush x:Key="PrimaryColorPressed" Color="#2ECC8F"/>
+    <SolidColorBrush x:Key="SecondaryColor" Color="#697A96"/>
 
-    <SolidColorBrush x:Key="BackgroundHover" Color="#2D295F"/>
-    <SolidColorBrush x:Key="BackgroundPressed" Color="#1B1A42"/>
+    <SolidColorBrush x:Key="BackgroundPrimary" Color="#131A24"/>
+    <SolidColorBrush x:Key="BackgroundSecondary" Color="#111820"/>
+    <SolidColorBrush x:Key="BackgroundTertiary" Color="#1B242D"/>
+    <SolidColorBrush x:Key="BackgroundControl" Color="#182028"/>
+
+    <SolidColorBrush x:Key="BackgroundHover" Color="#182028"/>
+    <SolidColorBrush x:Key="BackgroundPressed" Color="#171E23"/>
 
     <SolidColorBrush x:Key="ForegroundPrimary" Color="#FFFFFF"/>
     <SolidColorBrush x:Key="ForegroundSecondary" Color="#B8B5D0"/>
 
     <SolidColorBrush x:Key="Danger" Color="#FF406E"/>
-    <SolidColorBrush x:Key="DangerHover" Color="#F94851"/>
+    <SolidColorBrush x:Key="DangerHover" Color="#FF717F"/>
     <SolidColorBrush x:Key="DangerPressed" Color="#F23B4D"/>
-    <SolidColorBrush x:Key="Warning" Color="#FFDC48"/>
     <SolidColorBrush x:Key="Info" Color="#00C3FF"/>
+    <SolidColorBrush x:Key="InfoHover" Color="#33D9FF"/>
+    <SolidColorBrush x:Key="InfoPressed" Color="#18B2D6"/>
+    <SolidColorBrush x:Key="Success" Color="#0BFF73"/>
+    <SolidColorBrush x:Key="SuccessHover" Color="#5FFFA0"/>
+    <SolidColorBrush x:Key="SuccessPressed" Color="#14E268"/>
+    <SolidColorBrush x:Key="White" Color="#fff"/>
+    <SolidColorBrush x:Key="DesabledBackground" Color="#353551"/>
+    <SolidColorBrush x:Key="DesabledForeground" Color="#3C3C54"/>
+    
+    <LinearGradientBrush x:Key="AppBackground">
+        <GradientStop Color="#0D121B" Offset="0"/>
+        <GradientStop Color="#0D121B" Offset=".4"/>
+        <GradientStop Color="#0D121B" Offset="1"/>
+    </LinearGradientBrush>
 </ResourceDictionary>

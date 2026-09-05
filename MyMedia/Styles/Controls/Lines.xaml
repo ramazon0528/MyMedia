@@ -10,7 +10,7 @@
     <Style TargetType="Rectangle" x:Key="HorizontalRectangle">
         <Setter Property="Height" Value="0.3"/>
         <Setter Property="Stroke" Value="{DynamicResource SecondaryColor}"/>
-        <Setter Property="Margin" Value="10"/>
+        <Setter Property="Margin" Value="10 0"/>
     </Style>
     
     <Style TargetType="Rectangle" x:Key="VerticalRectangle">

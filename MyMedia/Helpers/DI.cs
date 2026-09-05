@@ -7,6 +7,7 @@ using MyMedia.Infrastructure;
 using MyMedia.Infrastructure.Services;
 using MyMedia.Services;
 using MyMedia.Services.Interfaces;
+using MyMedia.ViewModels.Pages;
 using MyMedia.ViewModels.Windows;
 
 namespace MyMedia.Helpers;
@@ -22,7 +23,14 @@ public class DI
         services.AddInfrastructure($"Data Source={DbPathProvider.GetDbPath()}");
 
         services.AddTransient<MainWindow>();
+
         services.AddTransient<MainViewModel>();
+        services.AddTransient<AddMediaViewModel>();
+        services.AddTransient<MediaViewModel>();
+        services.AddTransient<CategoryViewModel>();
+        services.AddTransient<GenreViewModel>();
+        services.AddTransient<SettingsViewModel>();
+
         services.AddTransient<MediaService>();
         services.AddTransient<CategoryService>();
         services.AddTransient<GenreService>();
@@ -38,6 +46,7 @@ public class DI
         services.AddSingleton<IImageService, ImageService>();
         services.AddSingleton<IThemeService, ThemeService>();
         services.AddSingleton<IWindowService, WindowService>();
+        services.AddSingleton<NavigationService>();
 
         _serviceProvider = services.BuildServiceProvider();
     }

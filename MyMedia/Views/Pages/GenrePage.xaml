@@ -1,0 +1,156 @@
+﻿<UserControl x:Class="MyMedia.Views.Pages.GenrePage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MyMedia.Views.Pages"
+             xmlns:vm="clr-namespace:MyMedia.ViewModels.Pages"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             d:DataContext="{d:DesignInstance Type=vm:GenreViewModel, IsDesignTimeCreatable=False}"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadGenresCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <Border Background="{DynamicResource BackgroundPrimary}"
+        CornerRadius="10">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition/>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Жанры"
+                   Style="{DynamicResource HeaderXL}"/>
+
+            <Rectangle Style="{DynamicResource HorizontalRectangle}"
+                   VerticalAlignment="Bottom"/>
+
+            <ListBox Background="{x:Null}"
+                     ItemsSource="{Binding Genres}"
+                     Grid.Row="1"
+                     SelectedItem="{Binding SelectedGenre}"
+                     BorderThickness="0">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="Background"
+                            Value="Transparent"/>
+                        <Setter Property="BorderThickness"
+                            Value="0"/>
+
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListBoxItem">
+                                    <ContentPresenter/>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border Style="{DynamicResource CategoryListBoxItem}"
+                                HorizontalAlignment="Stretch"
+                                Height="50">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="60"/>
+                                    <ColumnDefinition Width="60"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Text="{Binding Name}"
+                                           Style="{DynamicResource ListBoxCategoryName}"/>
+
+                                <Button Grid.Column="2"
+                                        Style="{DynamicResource DeleteButton}"
+                                        Content="{md:PackIcon Kind=Delete, Size=20}"
+                                        CommandParameter="{Binding}"
+                                        Command="{Binding DataContext.DeleteGenreCommand, RelativeSource={RelativeSource AncestorType=ListBox}}"/>
+
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <Rectangle Style="{DynamicResource HorizontalRectangle}"
+                   Grid.Row="2"
+                   VerticalAlignment="Top"/>
+
+            <Border Grid.Row="1"
+                Style="{DynamicResource CategoryForm}"
+                Name="CategoryForm">
+                <StackPanel Orientation="Horizontal">
+                    <TextBox Width="200"
+                         Tag="Введите жанр"
+                         Text="{Binding GenreName}"/>
+
+                    <Button Style="{DynamicResource AddButton}"
+                        Content="{md:PackIcon Kind=Check, Size=20}"
+                        Command="{Binding AddGenreCommand}"/>
+
+                    <Button Style="{DynamicResource DeleteButton}"
+                            Content="{md:PackIcon Kind=Close, Size=20}">
+                        <Button.Triggers>
+                            <EventTrigger RoutedEvent="Button.Click">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="CategoryForm"
+                                                     Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+                                                     Duration="0:0:0.5"
+                                                     From="0" To="350">
+                                            <DoubleAnimation.EasingFunction>
+                                                <BackEase Amplitude="1" EasingMode="EaseIn"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Button.Triggers>
+                    </Button>
+                </StackPanel>
+            </Border>
+
+            <StackPanel Orientation="Horizontal"
+                        Grid.Row="2">
+                <TextBox Text="{Binding SelectedGenre.Name}"
+                        Width="250"
+                        Tag="Изменение жанра"/>
+
+                <Button Style="{DynamicResource AddButton}"
+                        Content="{md:PackIcon Kind=Check, Size=20}"
+                        Command="{Binding EditGenreCommand}"/>
+            </StackPanel>
+
+            <Button Grid.Row="2"
+                Style="{DynamicResource BigPrimaryButton}"
+                Width="200" HorizontalAlignment="Right"
+                Content="Добавить">
+                <Button.Triggers>
+                    <EventTrigger RoutedEvent="Button.Click">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetName="CategoryForm"
+                                             Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+                                             Duration="0:0:0.5"
+                                             From="350" To="0">
+                                    <DoubleAnimation.EasingFunction>
+                                        <BackEase EasingMode="EaseOut"
+                                              Amplitude="1"/>
+                                    </DoubleAnimation.EasingFunction>
+                                </DoubleAnimation>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Button.Triggers>
+            </Button>
+        </Grid>
+    </Border>
+</UserControl>

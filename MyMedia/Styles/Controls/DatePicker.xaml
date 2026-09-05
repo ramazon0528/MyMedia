@@ -4,6 +4,7 @@
     
     <Style x:Key="MyDatePickerStyle" TargetType="{x:Type DatePicker}">
         <Setter Property="Height" Value="40"/>
+        <Setter Property="Margin" Value="10 5"/>
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="FontFamily" Value="Nunito"/>
         <Setter Property="Foreground" Value="{DynamicResource White}"/>

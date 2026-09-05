@@ -7,6 +7,7 @@
         <Setter Property="Background" Value="{DynamicResource BackgroundSecondary}"/>
         <Setter Property="Foreground" Value="{DynamicResource White}"/>
         <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Margin" Value="10 5"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ComboBox">
@@ -18,7 +19,7 @@
                             <ToggleButton.Style>
                                 <Style TargetType="ToggleButton">
                                     <Setter Property="Foreground" Value="{DynamicResource SecondaryColor}"/>
-                                    <Setter Property="Background" Value="{StaticResource BackgroundSecondary}"/>
+                                    <Setter Property="Background" Value="{DynamicResource BackgroundSecondary}"/>
                                     <Setter Property="OverridesDefaultStyle" Value="true"/>
                                     <Setter Property="Cursor" Value="Hand"/>
                                     <Setter Property="Template">
@@ -96,7 +97,7 @@
                                         Background="{DynamicResource BackgroundSecondary}" 
                                         CornerRadius="5" 
                                         BorderThickness="1" 
-                                        BorderBrush="{StaticResource SecondaryColor}"/>
+                                        BorderBrush="{DynamicResource SecondaryColor}"/>
 
                                 <ScrollViewer Margin="4,6,4,6" SnapsToDevicePixels="True">
                                     <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained"/>

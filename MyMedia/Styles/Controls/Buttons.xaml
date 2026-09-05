@@ -2,7 +2,9 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes">
 
-    <Style x:Key="BigButton" TargetType="Button">
+    
+    
+    <Style x:Key="BigPrimaryButton" TargetType="Button">
         <Setter Property="FontFamily" Value="Nunito"/>
         <Setter Property="Height" Value="40"/>
         <Setter Property="Margin" Value="10"/>
@@ -26,6 +28,42 @@
 
             <Trigger Property="IsPressed" Value="True">
                 <Setter Property="Background" Value="{DynamicResource PrimaryColorPressed}"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Background" Value="{DynamicResource DesabledBackground}"/>
+                <Setter Property="Foreground" Value="{DynamicResource DesabledForeground}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
+    <Style x:Key="BigSecondaryButton" TargetType="Button">
+        <Setter Property="FontFamily" Value="Nunito"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundSecondary}"/>
+        <Setter Property="Foreground" Value="{DynamicResource SecondaryColor}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}"
+                            CornerRadius="10">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource BackgroundHover}"/>
+            </Trigger>
+
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="{DynamicResource BackgroundPressed}"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Background" Value="{DynamicResource DesabledBackground}"/>
+                <Setter Property="Foreground" Value="{DynamicResource DesabledForeground}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -73,6 +111,10 @@
             <Trigger Property="IsPressed" Value="True">
                 <Setter Property="Background" Value="{DynamicResource BackgroundPressed}"/>
             </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Background" Value="{DynamicResource DesabledBackground}"/>
+                <Setter Property="Foreground" Value="{DynamicResource DesabledForeground}"/>
+            </Trigger>
         </Style.Triggers>
     </Style>
     
@@ -86,6 +128,10 @@
 
             <Trigger Property="IsPressed" Value="True">
                 <Setter Property="Background" Value="{DynamicResource PrimaryColorPressed}"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Background" Value="{DynamicResource DesabledBackground}"/>
+                <Setter Property="Foreground" Value="{DynamicResource DesabledForeground}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -101,6 +147,10 @@
             <Trigger Property="IsPressed" Value="True">
                 <Setter Property="Background" Value="{DynamicResource DangerPressed}"/>
             </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Background" Value="{DynamicResource DesabledBackground}"/>
+                <Setter Property="Foreground" Value="{DynamicResource DesabledForeground}"/>
+            </Trigger>
         </Style.Triggers>
     </Style>
     
@@ -114,6 +164,10 @@
 
             <Trigger Property="IsPressed" Value="True">
                 <Setter Property="Background" Value="{DynamicResource InfoPressed}"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Background" Value="{DynamicResource DesabledBackground}"/>
+                <Setter Property="Foreground" Value="{DynamicResource DesabledForeground}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -130,6 +184,10 @@
             <Trigger Property="IsPressed" Value="True">
                 <Setter Property="Background" Value="{DynamicResource DangerPressed}"/>
             </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Background" Value="{DynamicResource DesabledBackground}"/>
+                <Setter Property="Foreground" Value="{DynamicResource DesabledForeground}"/>
+            </Trigger>
         </Style.Triggers>
     </Style>
     
@@ -144,6 +202,10 @@
 
             <Trigger Property="IsPressed" Value="True">
                 <Setter Property="Background" Value="{DynamicResource InfoPressed}"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Background" Value="{DynamicResource DesabledBackground}"/>
+                <Setter Property="Foreground" Value="{DynamicResource DesabledForeground}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -160,7 +222,38 @@
             <Trigger Property="IsPressed" Value="True">
                 <Setter Property="Background" Value="{DynamicResource SuccessPressed}"/>
             </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Background" Value="{DynamicResource DesabledBackground}"/>
+                <Setter Property="Foreground" Value="{DynamicResource DesabledForeground}"/>
+            </Trigger>
         </Style.Triggers>
+    </Style>
+    
+    <Style x:Key="SearchButton" TargetType="Button" BasedOn="{StaticResource SquareButtonBase}">
+        <Setter Property="Width" Value="38"/>
+        <Setter Property="Height" Value="38"/>
+        <Setter Property="Margin" Value="11 0"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="Content" Value="{md:PackIcon Kind=Search,Size=20}"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundSecondary}"/>
+        <Setter Property="Foreground" Value="{DynamicResource SecondaryColor}"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource BackgroundHover}"/>
+            </Trigger>
+
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="{DynamicResource BackgroundPressed}"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Background" Value="{DynamicResource DesabledBackground}"/>
+                <Setter Property="Foreground" Value="{DynamicResource DesabledForeground}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="SelectImageButton" TargetType="Button" BasedOn="{StaticResource SearchButton}">
+        <Setter Property="Content" Value="{md:PackIcon Kind=Image,Size=20}"/>
     </Style>
     
     

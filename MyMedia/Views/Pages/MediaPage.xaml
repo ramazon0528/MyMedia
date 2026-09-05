@@ -1,0 +1,369 @@
+﻿<UserControl x:Class="MyMedia.Views.Pages.MediaPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MyMedia.Views.Pages"
+             xmlns:vm="clr-namespace:MyMedia.ViewModels.Pages"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             mc:Ignorable="d" 
+             d:DataContext="{d:DesignInstance vm:MediaViewModel}"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadMediasCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    
+    <Border Background="{DynamicResource BackgroundPrimary}"
+            CornerRadius="10">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition/>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+
+            <Rectangle Style="{DynamicResource HorizontalRectangle}"
+                       VerticalAlignment="Bottom"/>
+            
+            <Rectangle Style="{DynamicResource HorizontalRectangle}"
+                       VerticalAlignment="Top"
+                       Grid.Row="2"/>
+
+            <ListBox Grid.Row="1"
+                     ItemsSource="{Binding Medias}"
+                     Background="{x:Null}"
+                     BorderThickness="0"
+                     SelectedItem="{Binding SelectedMedia}"
+                     ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="Background"
+                                        Value="Transparent"/>
+                        <Setter Property="BorderThickness"
+                                        Value="0"/>
+
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListBoxItem">
+                                    <ContentPresenter/>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Width="{Binding RelativeSource={RelativeSource AncestorType=ListBox}, Path=ActualWidth}"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border Style="{DynamicResource MediaListBoxItem}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="4*"/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                
+                                <Border CornerRadius="10"
+                                        Margin="5">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="{Binding ImageFullPath}"
+                                                    Stretch="UniformToFill"/>
+                                    </Border.Background>
+                                </Border>
+
+                                <TextBlock Grid.Row="1"
+                                           Text="{Binding Name}"
+                                           Style="{DynamicResource MediaListBoxName}"/>
+
+                                <ToggleButton Grid.Row="1"
+                                              IsChecked="{Binding IsCompleted}"
+                                              Style="{DynamicResource MediaIsCompletedToggleButton}"/>
+
+                                <Rectangle Grid.Row="2"
+                                           Style="{DynamicResource HorizontalRectangle}"
+                                           VerticalAlignment="Top"
+                                           Margin="10 2"/>
+
+                                <StackPanel Grid.Row="2"
+                                            Orientation="Horizontal"
+                                            HorizontalAlignment="Center"
+                                            Margin="0 5 0 0">
+
+                                    <md:PackIcon Kind="CalendarMultiselect"
+                                                 Width="20" Height="20"
+                                                 VerticalAlignment="Center"
+                                                 Foreground="{DynamicResource PrimaryColor}"/>
+
+                                    <TextBlock Style="{DynamicResource MediaListBoxInfo}"
+                                               Text="{Binding Date, StringFormat=dd.MM.yyyy}"/>
+
+                                    <md:PackIcon Kind="Star"
+                                                 Margin="10 0 0 0"
+                                                 Width="20" Height="20"
+                                                 Foreground="{DynamicResource PrimaryColor}"
+                                                 VerticalAlignment="Center"/>
+
+                                    <TextBlock Style="{DynamicResource MediaListBoxInfo}"
+                                               Text="{Binding Rating}"/>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition MaxWidth="200"/>
+                    <ColumnDefinition MaxWidth="200"/>
+                    <ColumnDefinition MaxWidth="200"/>
+                    <ColumnDefinition MaxWidth="150"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="Media"
+                           Style="{DynamicResource HeaderXL}"/>
+
+                <ComboBox Style="{DynamicResource MainComboBox}"
+                          Grid.Column="1"
+                          Tag="Категория"
+                          ItemsSource="{Binding Categories}"
+                          SelectedItem="{Binding SelectedCategory}"
+                          DisplayMemberPath="Name"/>
+
+                <ComboBox Style="{DynamicResource MainComboBox}"
+                          Grid.Column="2"
+                          Tag="Жанр"
+                          SelectedItem="{Binding SelectedGenre}"
+                          ItemsSource="{Binding Genres}"
+                          DisplayMemberPath="Name"/>
+                
+                <ComboBox Style="{DynamicResource MainComboBox}"
+                          Grid.Column="3"
+                          Tag="Сортировка"
+                          SelectedItem="{Binding SelectedSortOption}"
+                          ItemsSource="{Binding SortOptions}"/>
+
+                <StackPanel Orientation="Horizontal"
+                            Grid.Column="4"
+                            HorizontalAlignment="Right">
+                    <ToggleButton Style="{DynamicResource SortDescendingButton}"
+                                  IsChecked="{Binding SortDescending}"
+                                  Command="{Binding ApplyFiltersCommand}"/>
+
+                    <Button Style="{DynamicResource DeleteButton}"
+                            Content="{md:PackIcon Kind=close}"
+                            Command="{Binding ResetFiltersCommand}"/>
+                   
+                    <Button Style="{DynamicResource AddButton}"
+                            Content="{md:PackIcon Kind=Check}"
+                            Command="{Binding ApplyFiltersCommand}"/>
+                </StackPanel>
+            </Grid>
+
+            <Border Grid.RowSpan="3"
+                    HorizontalAlignment="Right"
+                    Panel.ZIndex="1"
+                    Width="250"
+                    CornerRadius="10"
+                    Name="MediaEditForm"
+                    Background="{DynamicResource BackgroundPressed}">
+                
+                <Border.RenderTransform>
+                    <TranslateTransform X="300"/>
+                </Border.RenderTransform>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <TextBlock Text="Изменение категории"
+                                   Style="{DynamicResource HeaderL}"
+                                   FontSize="15"/>
+
+                        <Button Style="{DynamicResource DeleteButton}"
+                                HorizontalAlignment="Right"
+                                Content="{md:PackIcon Kind=Close, Size=20}"
+                                Margin="10">
+                            <Button.Triggers>
+                                <EventTrigger RoutedEvent="Button.Click">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="MediaEditForm"
+                                                             Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+                                                             Duration="0:0:0.5"
+                                                             From="0" To="300">
+                                                <DoubleAnimation.EasingFunction>
+                                                    <BackEase Amplitude="1" EasingMode="EaseIn"/>
+                                                </DoubleAnimation.EasingFunction>
+                                            </DoubleAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Button.Triggers>
+                        </Button>
+                    </Grid>
+                    
+                    <ScrollViewer Grid.Row="1"
+                                  VerticalScrollBarVisibility="Auto">
+                        <StackPanel>
+
+                            <TextBox Tag="Название"
+                                     Text="{Binding MediaForEdit.Name}"/>
+
+                            <DatePicker Style="{DynamicResource MyDatePickerStyle}"
+                                        SelectedDate="{Binding MediaForEdit.Date}"/>
+
+                            <ComboBox Style="{DynamicResource MainComboBox}"
+                                      Tag="Категория"
+                                      DisplayMemberPath="Name"
+                                      ItemsSource="{Binding Categories}"
+                                      SelectedItem="{Binding SelectedMedia.Category}"/>
+
+                            <ComboBox Style="{DynamicResource MainComboBox}"
+                                      SelectedItem="{Binding SelectedMedia.Genre}"
+                                      Tag="Жанр"
+                                      DisplayMemberPath="Name"
+                                      ItemsSource="{Binding Genres}"/>
+
+                            <Grid>
+                                <TextBox Tag="Картинка"
+                                         Text="{Binding MediaForEdit.ImagePath}"/>
+                                <Button Style="{DynamicResource SelectImageButton}"
+                                        Command="{Binding SelectImageCommand}"/>
+                            </Grid>
+
+                            <Grid>
+                                <Slider Width="180"
+                                        HorizontalAlignment="Left"
+                                        Margin="10 5"
+                                        Minimum="0"
+                                        Maximum="10"
+                                        TickFrequency="1"
+                                        IsSnapToTickEnabled="True"
+                                        Name="Slider"
+                                        Value="{Binding MediaForEdit.Rating}"/>
+
+                                <TextBox Width="40"
+                                         HorizontalAlignment="Right"
+                                         HorizontalContentAlignment="Center"
+                                         Text="{Binding ElementName=Slider, Path=Value}"/>
+                            </Grid>
+
+                            <StackPanel Orientation="Horizontal">
+                                <ToggleButton Style="{DynamicResource MediaIsCompletedToggleButton}"
+                                              Margin="10 5"
+                                              IsChecked="{Binding MediaForEdit.IsCompleted}"/>
+
+                                <TextBlock Text="Просмотрено"
+                                           Style="{DynamicResource MediaListBoxInfo}"/>
+                            </StackPanel>
+
+                            <Button Style="{DynamicResource BigPrimaryButton}"
+                                    Content="Сохранить"
+                                    Command="{Binding EditMediaCommand}"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+            
+            
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition MaxWidth="250"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition MaxWidth="100"/>
+                    <ColumnDefinition MaxWidth="200"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBox Tag="Поиск"
+                         Text="{Binding SearchText}"/>
+                
+                <Button Style="{DynamicResource SearchButton}"
+                        Command="{Binding SearchMediasCommand}"/>
+
+                <StackPanel Grid.Column="1"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Center">
+
+                    <Button Style="{DynamicResource SquareButton}"
+                            Content="{md:PackIcon Kind=MenuLeft, Size=25}"
+                            Command="{Binding PrevPageCommand}"
+                            IsEnabled="{Binding HasPrevPage}"/>
+
+                    <Button Style="{DynamicResource AddButton}"
+                            Content="{Binding CurrentPage}"/>
+
+                    <TextBlock Text="|"
+                               Style="{DynamicResource HeaderXL}"/>
+
+                    <Button Style="{DynamicResource SquareButton}"
+                            Content="{Binding TotalPages}"/>
+
+                    <Button Style="{DynamicResource SquareButton}"
+                            Content="{md:PackIcon Kind=MenuRight, Size=25}"
+                            Command="{Binding NextPageCommand}"
+                            IsEnabled="{Binding HasNextPage}"/>
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"
+                            Grid.Column="2"
+                            HorizontalAlignment="Center">
+                    <ToggleButton Style="{DynamicResource MediaEditToggleButton}"
+                                  Content="{md:PackIcon Kind=Edit, Size=20}">
+                        <ToggleButton.Triggers>
+                            <EventTrigger RoutedEvent="ToggleButton.Checked">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="MediaEditForm"
+                                                         Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+                                                         Duration="0:0:0.5"
+                                                         From="300" To="0">
+                                            <DoubleAnimation.EasingFunction>
+                                                <BackEase Amplitude="1" EasingMode="EaseOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            
+                            <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="MediaEditForm"
+                                                         Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+                                                         Duration="0:0:0.5"
+                                                         From="0" To="300">
+                                            <DoubleAnimation.EasingFunction>
+                                                <BackEase Amplitude="1" EasingMode="EaseIn"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </ToggleButton.Triggers>
+                    </ToggleButton>
+
+                    <Button Style="{DynamicResource DeleteButton}"
+                            Content="{md:PackIcon Kind=Delete, Size=20}"
+                            Command="{Binding DeleteMediaCommand}"
+                            Grid.Column="2"/>
+                </StackPanel>
+                
+                <Button Style="{DynamicResource BigPrimaryButton}"
+                        Content="Добавить"
+                        Grid.Column="3"
+                        Command="{Binding AddMediaCommand}"/>
+            </Grid>
+        </Grid>    
+    </Border>
+</UserControl>

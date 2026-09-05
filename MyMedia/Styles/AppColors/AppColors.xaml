@@ -23,6 +23,7 @@
     <SolidColorBrush x:Key="Warning" Color="#fff"/>
     <SolidColorBrush x:Key="Info" Color="#fff"/>
     <SolidColorBrush x:Key="White" Color="#fff"/>
+    
 
     <LinearGradientBrush x:Key="AppBackground">
         <GradientStop Color="#fff" Offset="0"/>

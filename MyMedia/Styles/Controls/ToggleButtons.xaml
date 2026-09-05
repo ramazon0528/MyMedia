@@ -8,6 +8,7 @@
         <Setter Property="Foreground" Value="{DynamicResource SecondaryColor}"/>
         <Setter Property="Width" Value="40"/>
         <Setter Property="Height" Value="40"/>
+        <Setter Property="Margin" Value="5 0"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ToggleButton">
@@ -27,6 +28,84 @@
                             <Setter Property="Background" Value="{DynamicResource Success}"/>
                             <Setter Property="Foreground" Value="White"/>
                             <Setter Property="Content" Value="{md:PackIcon Kind=SortAscending,Size=20}"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Background" Value="{DynamicResource DesabledBackground}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource DesabledForeground}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style TargetType="ToggleButton" x:Key="MenuToggleButton">
+        <Setter Property="Content" Value="{md:PackIcon Kind=MenuClose, Size=20}"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundSecondary}"/>
+        <Setter Property="Foreground" Value="{DynamicResource SecondaryColor}"/>
+        <Setter Property="Width" Value="40"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToggleButton">
+                    <Border CornerRadius="10"
+                            Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource BackgroundHover}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource BackgroundPressed}"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource Danger}"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="Content" Value="{md:PackIcon Kind=MenuOpen,Size=20}"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Background" Value="{DynamicResource DesabledBackground}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource DesabledForeground}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style TargetType="ToggleButton" x:Key="MediaEditToggleButton">
+        <Setter Property="Content" Value="{md:PackIcon Kind=Edit, Size=20}"/>
+        <Setter Property="Background" Value="{DynamicResource Info}"/>
+        <Setter Property="Foreground" Value="{DynamicResource White}"/>
+        <Setter Property="Width" Value="40"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToggleButton">
+                    <Border CornerRadius="10"
+                            Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource InfoHover}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource InfoPressed}"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource Success}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource White}"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Background" Value="{DynamicResource DesabledBackground}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource DesabledForeground}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -77,9 +156,15 @@
                             <Setter Property="Foreground" Value="{DynamicResource PrimaryColor}"/>
                             <Setter Property="Visibility" Value="Visible" TargetName="Check"/>
                         </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Background" Value="{DynamicResource DesabledBackground}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource DesabledForeground}"/>
+                        </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
+
+   
 </ResourceDictionary>

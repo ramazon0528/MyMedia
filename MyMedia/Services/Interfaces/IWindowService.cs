@@ -1,4 +1,6 @@
-﻿namespace MyMedia.Services.Interfaces
+﻿using System.Windows;
+
+namespace MyMedia.Services.Interfaces
 {
     public interface IWindowService
     {
