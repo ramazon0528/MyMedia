@@ -16,6 +16,7 @@ namespace MyMedia
         protected override void OnStartup(StartupEventArgs e)
         {
             DI.Init();
+            DI.MigrateDatabase();
 
             var themeService = DI.GetRequiredService<IThemeService>();
 

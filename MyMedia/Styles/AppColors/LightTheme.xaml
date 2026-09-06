@@ -16,8 +16,8 @@
 
     <SolidColorBrush x:Key="ForegroundPrimary" Color="#FFFFFF"/>
     <SolidColorBrush x:Key="ForegroundSecondary" Color="#B8B5D0"/>
-    <SolidColorBrush x:Key="DesabledBackground" Color="#353551"/>
-    <SolidColorBrush x:Key="DesabledForeground" Color="#3C3C54"/>
+    <SolidColorBrush x:Key="DesabledBackground" Color="#C2C3C4"/>
+    <SolidColorBrush x:Key="DesabledForeground" Color="#A8A8A8"/>
 
     <SolidColorBrush x:Key="Danger" Color="#FF406E"/>
     <SolidColorBrush x:Key="DangerHover" Color="#FF717F"/>

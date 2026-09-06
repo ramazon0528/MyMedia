@@ -1,0 +1,7 @@
+C:\Users\mrkol\Desktop\MyMedia\MyMedia.pdb
+C:\Users\mrkol\Desktop\MyMedia\appsettings.json
+C:\Users\mrkol\Desktop\MyMedia\e_sqlite3.dll
+C:\Users\mrkol\Desktop\MyMedia\MyMedia.AppLayer.pdb
+C:\Users\mrkol\Desktop\MyMedia\MyMedia.Infrastructure.pdb
+C:\Users\mrkol\Desktop\MyMedia\MyMedia.Domain.pdb
+C:\Users\mrkol\Desktop\MyMedia\MyMedia.exe

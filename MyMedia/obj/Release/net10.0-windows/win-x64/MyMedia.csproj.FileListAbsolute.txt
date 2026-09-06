@@ -80,3 +80,14 @@ D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\obj\Release\net10.0-windows
 D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\obj\Release\net10.0-windows\win-x64\MyMedia.pdb
 D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\obj\Release\net10.0-windows\win-x64\MyMedia.genruntimeconfig.cache
 D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\obj\Release\net10.0-windows\win-x64\ref\MyMedia.dll
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\obj\Release\net10.0-windows\win-x64\Views\Pages\AddMediaPage.g.cs
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\obj\Release\net10.0-windows\win-x64\Views\Pages\CategoryPage.g.cs
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\obj\Release\net10.0-windows\win-x64\Views\Pages\GenrePage.g.cs
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\obj\Release\net10.0-windows\win-x64\Views\Pages\MediaPage.g.cs
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\obj\Release\net10.0-windows\win-x64\Views\Pages\SettingsPage.g.cs
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\obj\Release\net10.0-windows\win-x64\GeneratedInternalTypeHelper.g.cs
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\obj\Release\net10.0-windows\win-x64\Views\Pages\AddMediaPage.baml
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\obj\Release\net10.0-windows\win-x64\Views\Pages\CategoryPage.baml
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\obj\Release\net10.0-windows\win-x64\Views\Pages\GenrePage.baml
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\obj\Release\net10.0-windows\win-x64\Views\Pages\MediaPage.baml
+D:\02-SharpMaster\CSharp\WPF\MyMedia\MyMedia\MyMedia\obj\Release\net10.0-windows\win-x64\Views\Pages\SettingsPage.baml

@@ -33,16 +33,20 @@ public class MainViewModel : ViewModelBase
 
         Navigator = navigationService;
 
-        Navigator.NavigateTo(_mediaViewModel);
+        Navigator.ViewModel = _mediaViewModel;
 
         CloseCommand = new(() => _windowService.Close());
         MaximizeCommand = new(() => _windowService.Maximize());
         MinimizeCommand = new(() => _windowService.Minimize());
 
-        NavigateToMediaPageCommand = new(() => Navigator.NavigateTo(_mediaViewModel));
-        NavigateToCategoryPageCommand = new(() => Navigator.NavigateTo(_categoryViewModel));
-        NavigateToGenrePageCommand = new(() => Navigator.NavigateTo(_genreViewModel));
-        NavigateToSettingsPageCommand = new(() => Navigator.NavigateTo(_settingsViewModel));
+        NavigateToMediaPageCommand = new(async () => await Navigator.NavigateTo(_mediaViewModel));
+        NavigateToCategoryPageCommand = new(
+            async () => await Navigator.NavigateTo(_categoryViewModel)
+        );
+        NavigateToGenrePageCommand = new(async () => await Navigator.NavigateTo(_genreViewModel));
+        NavigateToSettingsPageCommand = new(
+            async () => await Navigator.NavigateTo(_settingsViewModel)
+        );
     }
 
     public RelayCommand CloseCommand { get; }

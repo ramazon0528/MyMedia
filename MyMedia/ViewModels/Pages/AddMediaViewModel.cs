@@ -2,6 +2,7 @@
 using MyMedia.AppLayer.Services;
 using MyMedia.Commands;
 using MyMedia.Domain.Entities;
+using MyMedia.Helpers;
 using MyMedia.Services;
 using MyMedia.Services.Interfaces;
 
@@ -12,6 +13,7 @@ public class AddMediaViewModel : ViewModelBase
     private readonly MediaService _mediaService;
     private readonly CategoryService _categoryService;
     private readonly GenreService _genreService;
+    private readonly NavigationService _navigationService;
     private readonly IDialogService _dialogService;
     private readonly IImageService _imageService;
 
@@ -19,6 +21,7 @@ public class AddMediaViewModel : ViewModelBase
         MediaService mediaService,
         CategoryService categoryService,
         GenreService genreService,
+        NavigationService navigationService,
         IDialogService dialogService,
         IImageService imageService
     )
@@ -28,11 +31,13 @@ public class AddMediaViewModel : ViewModelBase
         _genreService = genreService;
         _dialogService = dialogService;
         _imageService = imageService;
+        _navigationService = navigationService;
 
         InitializeCommand = new(InitializeFiltersAsync);
         AddMediaCommand = new(AddMediaAsync);
 
         SelectImageCommand = new(SelectImage);
+        CancelCommand = new(CancelAsync);
     }
 
     private async Task InitializeFiltersAsync()
@@ -72,6 +77,13 @@ public class AddMediaViewModel : ViewModelBase
         IsCompleted = true;
     }
 
+    private async Task CancelAsync()
+    {
+        var vm = DI.GetRequiredService<MediaViewModel>();
+
+        await _navigationService.NavigateTo(vm);
+    }
+
     private void SelectImage()
     {
         var sourcePath = _dialogService.ShowDialog();
@@ -98,4 +110,5 @@ public class AddMediaViewModel : ViewModelBase
     public AsyncRelayCommand AddMediaCommand { get; }
 
     public RelayCommand SelectImageCommand { get; }
+    public AsyncRelayCommand CancelCommand { get; }
 }

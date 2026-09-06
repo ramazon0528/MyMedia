@@ -1,9 +1,11 @@
 ﻿using System.Windows;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MyMedia.AppLayer.Configuration;
 using MyMedia.AppLayer.Services;
 using MyMedia.Infrastructure;
+using MyMedia.Infrastructure.Data;
 using MyMedia.Infrastructure.Services;
 using MyMedia.Services;
 using MyMedia.Services.Interfaces;
@@ -49,6 +51,15 @@ public class DI
         services.AddSingleton<NavigationService>();
 
         _serviceProvider = services.BuildServiceProvider();
+    }
+
+    public static void MigrateDatabase()
+    {
+        using var scope = _serviceProvider.CreateScope();
+
+        var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+
+        dbContext.Database.Migrate();
     }
 
     public static T GetRequiredService<T>()

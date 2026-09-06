@@ -8,7 +8,7 @@
              xmlns:vm="clr-namespace:MyMedia.ViewModels.Pages"
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance vm:AddMediaViewModel}"
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="600" d:DesignWidth="800">
 
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
@@ -18,63 +18,90 @@
     
     <Border Background="{DynamicResource BackgroundPrimary}"
             CornerRadius="10">
-        <StackPanel Width="250" VerticalAlignment="Center">
-            <TextBox Tag="Название"
-                     Text="{Binding Name}"/>
+        <Grid>
 
-            <DatePicker Style="{DynamicResource MyDatePickerStyle}"
-                        SelectedDate="{Binding Date}"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition/>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
 
-            <ComboBox Style="{DynamicResource MainComboBox}"
-                      Tag="Категория"
-                      DisplayMemberPath="Name"
-                      ItemsSource="{Binding Categories}"
-                      SelectedItem="{Binding SelectedCategory}"/>
-           
-            <ComboBox Style="{DynamicResource MainComboBox}"
-                      SelectedItem="{Binding SelectedGenre}"
-                      Tag="Жанр"
-                      DisplayMemberPath="Name"
-                      ItemsSource="{Binding Genres}"/>
+            <TextBlock Style="{DynamicResource HeaderXL}"
+                       Text="Добавить новую медию"/>
 
-            <Grid>
-                <TextBox Tag="Картинка"
-                         Text="{Binding ImagePath}"/>
-                <Button Style="{DynamicResource SelectImageButton}"
-                        Command="{Binding SelectImageCommand}"/>
-            </Grid>
+            <Rectangle Style="{DynamicResource HorizontalRectangle}"
+                       VerticalAlignment="Bottom"/>
             
-            <Grid>
-                <Slider Width="180"
-                        HorizontalAlignment="Left"
-                        Margin="10 5"
-                        Minimum="0"
-                        Maximum="10"
-                        TickFrequency="1"
-                        IsSnapToTickEnabled="True"
-                        Name="Slider"
-                        Value="{Binding Rating}"/>
+            <Rectangle Style="{DynamicResource HorizontalRectangle}"
+                       VerticalAlignment="Top"
+                       Grid.Row="2"/>
 
-                <TextBox Width="40"
-                         HorizontalAlignment="Right"
-                         HorizontalContentAlignment="Center"
-                         Text="{Binding ElementName=Slider, Path=Value}"/>
-            </Grid>
+            <StackPanel Grid.Row="1" Width="250" VerticalAlignment="Center">
+                <TextBox Tag="Название"
+                         Text="{Binding Name}"/>
 
-            <StackPanel Orientation="Horizontal">
-                <ToggleButton Style="{DynamicResource MediaIsCompletedToggleButton}"
-                              Margin="10 5"
-                              IsChecked="{Binding IsCompleted}"/>
+                <DatePicker Style="{DynamicResource MyDatePickerStyle}"
+                            SelectedDate="{Binding Date}"/>
 
-                <TextBlock Text="Просмотрено"
-                           Style="{DynamicResource MediaListBoxInfo}"/>
+                <ComboBox Style="{DynamicResource MainComboBox}"
+                          Tag="Категория"
+                          DisplayMemberPath="Name"
+                          ItemsSource="{Binding Categories}"
+                          SelectedItem="{Binding SelectedCategory}"/>
+
+                <ComboBox Style="{DynamicResource MainComboBox}"
+                          SelectedItem="{Binding SelectedGenre}"
+                          Tag="Жанр"
+                          DisplayMemberPath="Name"
+                          ItemsSource="{Binding Genres}"/>
+
+                <Grid>
+                    <TextBox Tag="Картинка"
+                             Text="{Binding ImagePath}"/>
+                    <Button Style="{DynamicResource SelectImageButton}"
+                            Command="{Binding SelectImageCommand}"/>
+                </Grid>
+
+                <Grid>
+                    <Slider Width="180"
+                            HorizontalAlignment="Left"
+                            Margin="10 5"
+                            Minimum="0"
+                            Maximum="10"
+                            TickFrequency="1"
+                            IsSnapToTickEnabled="True"
+                            Name="Slider"
+                            Value="{Binding Rating}"/>
+
+                    <TextBox Width="40"
+                             HorizontalAlignment="Right"
+                             HorizontalContentAlignment="Center"
+                             Text="{Binding ElementName=Slider, Path=Value}"/>
+                </Grid>
+
+                <StackPanel Orientation="Horizontal">
+                    <ToggleButton Style="{DynamicResource MediaIsCompletedToggleButton}"
+                                  Margin="10 5"
+                                  IsChecked="{Binding IsCompleted}"/>
+
+                    <TextBlock Text="Просмотрено"
+                               Style="{DynamicResource MediaListBoxInfo}"/>
+                </StackPanel>
+
+                <Button Style="{DynamicResource BigPrimaryButton}"
+                        Content="Добавить"
+                        Command="{Binding AddMediaCommand}"/>
+
+
             </StackPanel>
 
             <Button Style="{DynamicResource BigPrimaryButton}"
-                    Content="Добавить"
-                    Command="{Binding AddMediaCommand}"/>
-            
-            
-        </StackPanel>
+                    Background="{DynamicResource Danger}"
+                    Width="200"
+                    HorizontalAlignment="Right"
+                    Grid.Row="2"
+                    Content="Отмена"
+                    Command="{Binding CancelCommand}"/>
+        </Grid>
     </Border>
 </UserControl>

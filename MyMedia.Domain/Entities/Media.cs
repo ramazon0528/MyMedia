@@ -1,4 +1,6 @@
-﻿namespace MyMedia.Domain.Entities;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace MyMedia.Domain.Entities;
 
 public class Media
 {
@@ -13,6 +15,7 @@ public class Media
     public Category? Category { get; set; }
     public Genre? Genre { get; set; }
 
+    [NotMapped]
     public string? ImageFullPath =>
         string.IsNullOrWhiteSpace(ImagePath)
             ? null

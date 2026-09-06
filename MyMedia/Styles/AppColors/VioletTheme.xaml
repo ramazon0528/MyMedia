@@ -27,8 +27,8 @@
     <SolidColorBrush x:Key="SuccessHover" Color="#5FFFA0"/>
     <SolidColorBrush x:Key="SuccessPressed" Color="#14E268"/>
     <SolidColorBrush x:Key="White" Color="#fff"/>
-    <SolidColorBrush x:Key="DesabledBackground" Color="#353551"/>
-    <SolidColorBrush x:Key="DesabledForeground" Color="#3C3C54"/>
+    <SolidColorBrush x:Key="DesabledBackground" Color="#23234C"/>
+    <SolidColorBrush x:Key="DesabledForeground" Color="#2F2F59"/>
 
     <LinearGradientBrush x:Key="AppBackground">
         <GradientStop Color="#110422" Offset="0"/>

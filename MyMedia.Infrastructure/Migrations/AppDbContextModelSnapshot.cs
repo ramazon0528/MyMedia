@@ -63,7 +63,6 @@ namespace MyMedia.Infrastructure.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("ImagePath")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("IsCompleted")

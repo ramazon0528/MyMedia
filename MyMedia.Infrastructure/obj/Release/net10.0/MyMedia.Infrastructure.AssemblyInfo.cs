@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MyMedia.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+222ff1ed3a4778d49abbe8aaad2883aa4bf5859f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+34dadef54f734e5a2dce17d5f14f7cc2fe1314a1")]
 [assembly: System.Reflection.AssemblyProductAttribute("MyMedia.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MyMedia.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

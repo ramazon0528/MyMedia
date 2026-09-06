@@ -316,6 +316,14 @@
           }
         }
       },
+      "PropertyChanged.Fody/4.1.0": {
+        "runtime": {
+          "lib/netstandard2.1/PropertyChanged.dll": {
+            "assemblyVersion": "4.1.0.0",
+            "fileVersion": "4.1.0.0"
+          }
+        }
+      },
       "SQLitePCLRaw.bundle_e_sqlite3/2.1.12": {
         "dependencies": {
           "SQLitePCLRaw.lib.e_sqlite3": "2.1.12",
@@ -652,6 +660,13 @@
       "sha512": "sha512-MCu674ZETgU18EbxfwIlRpUPJ02YbZenLsMCXTkpeA7KUBpXfFaOUDlEO+7UWu5AFnUoydg+aQENJkuaZPheMQ==",
       "path": "microsoft.xaml.behaviors.wpf/1.1.77",
       "hashPath": "microsoft.xaml.behaviors.wpf.1.1.77.nupkg.sha512"
+    },
+    "PropertyChanged.Fody/4.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6v+f9cI8YjnZH2WBHuOqWEAo8DFFNGFIdU8xD3AsL6fhV6Y8oAmVWd7XKk49t8DpeUBwhR/X+97+6Epvek0Y3A==",
+      "path": "propertychanged.fody/4.1.0",
+      "hashPath": "propertychanged.fody.4.1.0.nupkg.sha512"
     },
     "SQLitePCLRaw.bundle_e_sqlite3/2.1.12": {
       "type": "package",

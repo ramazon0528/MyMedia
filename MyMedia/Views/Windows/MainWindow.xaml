@@ -187,7 +187,8 @@
 
                 <ContentControl Content="{Binding Navigator.ViewModel}"
                                 x:Name="Content"
-                                Margin="80 0 10 10"/>
+                                Margin="80 0 10 10"
+                                Opacity="{Binding Navigator.Opacity}"/>
             </Grid>
         </Grid>
     </Border>

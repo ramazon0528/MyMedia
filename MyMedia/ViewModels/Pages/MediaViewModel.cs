@@ -42,7 +42,7 @@ public class MediaViewModel : ViewModelBase
         NextPageCommand = new(NextPageAsync);
         PrevPageCommand = new(PrevPageAsync);
 
-        AddMediaCommand = new(() => _navigationService.NavigateTo(_addMediaViewModel));
+        AddMediaCommand = new(async () => await _navigationService.NavigateTo(_addMediaViewModel));
     }
 
     #region Methods

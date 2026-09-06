@@ -4,5 +4,5 @@ namespace MyMedia.Services.Interfaces;
 
 public interface INavigationService
 {
-    void NavigateTo(ViewModelBase viewModelBase);
+    Task NavigateTo(ViewModelBase viewModelBase);
 }
